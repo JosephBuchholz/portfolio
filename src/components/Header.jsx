@@ -14,7 +14,7 @@ function NavigationBar() {
           to="home-marker"
           className="text-3xl font-bold text-black m-6 p-1 cursor-pointer"
         >
-          Joseph
+          <img className="h-6" src="images/logo.svg"></img>
         </Link>
       </div>
 
