@@ -1,42 +1,18 @@
 import { useLayoutEffect, useState } from "react";
 import Header from "../components/Header";
+import SocialButton from "../components/SocialButton";
+import HighlightDiv from "../components/Highlighters";
+import SkillButton from "../components/SkillButton";
 import { Link } from "react-scroll";
-
-function SocialButton({ link, imageSrc, text }) {
-  const [hover, setHover] = useState(false);
-
-  return (
-    <li
-      onMouseEnter={() => {
-        setHover(true);
-      }}
-      onMouseLeave={() => {
-        setHover(false);
-      }}
-      className="flex flex-row items-center w-min h-14 mt-2 overflow-clip transition-all duration-75 hover:bg-slate-200 hover:w-full rounded-r-full rounded-l-md"
-    >
-      <div className="w-20 h-14">
-        <a className="" href={link} target="_blank">
-          <img className="h-14 bg-white p-1" src={imageSrc}></img>
-        </a>
-      </div>
-
-      {hover ? (
-        <p className="text-gray-800 font-semibold text-sm text-ellipsis md:text-base">
-          {text}
-        </p>
-      ) : (
-        <></>
-      )}
-    </li>
-  );
-}
+import Footer from "../components/Footer";
 
 export default function HomePage() {
   const [windowSize, setWindowSize] = useState([
     window.innerWidth,
     window.innerHeight,
   ]);
+
+  const [highlightSkill, setHighlightSkill] = useState("");
 
   useLayoutEffect(() => {
     function onResizeListener() {
@@ -126,59 +102,170 @@ export default function HomePage() {
         <section id="skills-marker" className="bg-white relative z-10">
           <br className="m-4"></br>
           <h2 className="font-semibold text-4xl m-4">Skills</h2>
-          <p className="ml-4">Proficient: C++, Python, JavaScript, HTML</p>
-          <p className="ml-4">
-            Some Experience: Django, React, Tailwind CSS, Kotlin, Jetpack
-            Compose, LaTeX, Emscripten, Vim
-          </p>
+          <br></br>
+          <p className="ml-4 font-semibold text-xl">Proficient:</p>
+          <ul className="flex flew-row flex-wrap ml-4">
+            <SkillButton
+              highlight
+              clickable
+              onClick={() => {
+                setHighlightSkill("C/C++");
+              }}
+            >
+              C/C++
+            </SkillButton>
+            <SkillButton
+              highlight
+              clickable
+              onClick={() => {
+                setHighlightSkill("Python");
+              }}
+            >
+              Python
+            </SkillButton>
+            <SkillButton
+              highlight
+              clickable
+              onClick={() => {
+                setHighlightSkill("JavaScript");
+              }}
+            >
+              JavaScript
+            </SkillButton>
+            <SkillButton
+              highlight
+              clickable
+              onClick={() => {
+                setHighlightSkill("HTML");
+              }}
+            >
+              HTML
+            </SkillButton>
+          </ul>
+          <p className="ml-4 font-semibold text-xl">Some Experience:</p>
+          <ul className="flex flew-row flex-wrap ml-4">
+            <SkillButton
+              clickable
+              onClick={() => {
+                setHighlightSkill("Django");
+              }}
+            >
+              Django
+            </SkillButton>
+            <SkillButton
+              clickable
+              onClick={() => {
+                setHighlightSkill("React");
+              }}
+            >
+              React
+            </SkillButton>
+            <SkillButton
+              clickable
+              onClick={() => {
+                setHighlightSkill("Tailwind CSS");
+              }}
+            >
+              Tailwind CSS
+            </SkillButton>
+            <SkillButton
+              clickable
+              onClick={() => {
+                setHighlightSkill("Kotlin");
+              }}
+            >
+              Kotlin
+            </SkillButton>
+            <SkillButton
+              clickable
+              onClick={() => {
+                setHighlightSkill("Jetpack Compose");
+              }}
+            >
+              Jetpack Compose
+            </SkillButton>
+            <SkillButton>LaTeX</SkillButton>
+            <SkillButton
+              clickable
+              onClick={() => {
+                setHighlightSkill("Emscripten");
+              }}
+            >
+              Emscripten
+            </SkillButton>
+          </ul>
         </section>
         <section id="projects-marker" className="bg-white relative z-10">
           <br className="m-4"></br>
           <h2 className="font-semibold text-4xl m-4">Projects</h2>
 
-          <p className="ml-4 font-semibold">
-            Android/Web Music Application - 2021 to Present
-          </p>
-          <p className="ml-4">
-            Description: A music application that displays standard music
-            notation and guitar tablature with live audio playback. The
-            application was originally developed for Android using Kotlin and
-            C++. Though now I am porting the project to the Web for greater
-            accessibility using Emscripten, Django, and React.
-          </p>
+          <HighlightDiv
+            highlight={
+              highlightSkill == "C/C++" ||
+              highlightSkill == "Python" ||
+              highlightSkill == "JavaScript" ||
+              highlightSkill == "HTML" ||
+              highlightSkill == "Django" ||
+              highlightSkill == "React" ||
+              highlightSkill == "Tailwind CSS" ||
+              highlightSkill == "Kotlin" ||
+              highlightSkill == "Jetpack Compose" ||
+              highlightSkill == "Emscripten"
+            }
+          >
+            <p className="ml-4 font-semibold">
+              Android/Web Music Application - 2021 to Present
+            </p>
+            <p className="ml-4">
+              Description: A music application that displays standard music
+              notation and guitar tablature with live audio playback. The
+              application was originally developed for Android using Kotlin and
+              C++. Though now I am porting the project to the Web for greater
+              accessibility using Emscripten, Django, and React.
+            </p>
+          </HighlightDiv>
 
           <br></br>
 
-          <p className="ml-4 font-semibold">
-            Song Scripture Referencer - 2024 to Present
-          </p>
-          <p className="ml-4">
-            Description: A simple Web application made with Django and React
-            that displays Bible references for the lyrics of Christian songs and
-            hymns.
-          </p>
+          <HighlightDiv
+            highlight={
+              highlightSkill == "Python" ||
+              highlightSkill == "JavaScript" ||
+              highlightSkill == "HTML" ||
+              highlightSkill == "Django" ||
+              highlightSkill == "React" ||
+              highlightSkill == "Tailwind CSS"
+            }
+          >
+            <p className="ml-4 font-semibold">
+              Song Scripture Referencer - 2024 to Present
+            </p>
+            <p className="ml-4">
+              Description: A simple Web application made with Django and React
+              that displays Bible references for the lyrics of Christian songs
+              and hymns.
+            </p>
+          </HighlightDiv>
 
           <br></br>
 
-          <p className="ml-4 font-semibold">
-            Video Game Projects - 2020 to 2022
-          </p>
-          <p className="ml-4">
-            Description: Multiple projects consisting of programming and
-            designing video games. Most of these video games were programmed
-            using the Godot game engine or C++.
-          </p>
+          <HighlightDiv
+            highlight={highlightSkill == "C/C++" || highlightSkill == "Python"}
+          >
+            <p className="ml-4 font-semibold">
+              Video Game Projects - 2020 to 2022
+            </p>
+            <p className="ml-4">
+              Description: Multiple projects consisting of programming and
+              designing video games. Most of these video games were programmed
+              using the Godot game engine (using Python/GDScript) or C++.
+            </p>
+          </HighlightDiv>
 
           <br></br>
         </section>
-        <footer className="h-52 p-4 bg-slate-900 relative z-10">
-          <a href="https://www.freepik.com/icon/email_542689#fromView=keyword&page=1&position=0&uuid=9cf6f7e3-e86b-41c6-8051-5349d31a321e">
-            <p className="text-slate-400 m-5 underline">
-              Email Icon by Freepik
-            </p>
-          </a>
-          <p className="text-slate-400 m-5">Made with React and Tailwind CSS</p>
-        </footer>
+
+        <Footer highlightSkill={highlightSkill}></Footer>
       </div>
     </main>
   );
