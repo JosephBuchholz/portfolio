@@ -1,8 +1,8 @@
 import { useLayoutEffect, useState } from "react";
 import Header from "../components/Header";
 import SocialButton from "../components/SocialButton";
-import HighlightDiv from "../components/Highlighters";
 import SkillButton from "../components/SkillButton";
+import ProjectPanel from "../components/ProjectPanel";
 import { Link } from "react-scroll";
 import Footer from "../components/Footer";
 
@@ -12,17 +12,29 @@ export default function HomePage() {
     window.innerHeight,
   ]);
 
+  const [currentScrollPosition, setCurrentScrollPosition] = useState(0.0);
+
   const [highlightSkill, setHighlightSkill] = useState("");
 
+  // add event listeners
   useLayoutEffect(() => {
     function onResizeListener() {
       setWindowSize([window.innerWidth, window.innerHeight]);
     }
 
+    function onScrollListener() {
+      setCurrentScrollPosition(window.scrollY);
+    }
+
     window.addEventListener("resize", onResizeListener);
-    return () => window.removeEventListener("resize", onResizeListener);
+    window.addEventListener("scroll", onScrollListener);
+    return () => {
+      window.removeEventListener("resize", onResizeListener);
+      window.removeEventListener("scroll", onScrollListener);
+    };
   }, []);
 
+  // change how my image looks depending on screen size
   let sideImage = <></>;
   if (windowSize[0] > 500) {
     sideImage = (
@@ -40,63 +52,74 @@ export default function HomePage() {
     );
   }
 
+  // whether the top background (the fixed div element that contains my picture, social buttons, and "Hello I'm..." text) should be displayed
+  // hides it so that the over scroll at the bottom does not show it
+  let showTopBackground = true;
+  if (currentScrollPosition > windowSize[1]) {
+    showTopBackground = false;
+  }
+
   return (
     <main id="home-marker" className="flex flex-col">
       <Header></Header>
 
       <div>
         <section className="h-screen">
-          <div className="fixed">
-            <div className="flex flex-row flex-1 h-screen w-screen">
-              <div className="flex-1 flex justify-center items-center">
-                <div className="">
-                  <h1 className="font-sans text-4xl">Hello</h1>
-                  <h1 className="font-semibold font-sans text-4xl">
-                    I'm <br className="md:hidden"></br>
-                    <span className="font-bold text-blue-600">
-                      Joseph Buchholz
-                    </span>
-                  </h1>
+          {showTopBackground ? (
+            <div className="fixed">
+              <div className="flex flex-row flex-1 h-screen w-screen">
+                <div className="flex-1 flex justify-center items-center">
+                  <div className="">
+                    <h1 className="font-sans text-4xl">Hello</h1>
+                    <h1 className="font-semibold font-sans text-4xl">
+                      I'm <br className="md:hidden"></br>
+                      <span className="font-bold text-blue-600">
+                        Joseph Buchholz
+                      </span>
+                    </h1>
 
-                  <Link
-                    activeClass="active"
-                    smooth={true}
-                    spy={true}
-                    to="projects-marker"
-                  >
-                    <p className="cursor-pointer text-white text-center font-semibold font-sans text-2xl bg-blue-700 rounded-full mt-5 p-3 hover:bg-blue-600">
-                      My Projects
-                    </p>
-                  </Link>
+                    <Link
+                      activeClass="active"
+                      smooth={true}
+                      spy={true}
+                      to="projects-marker"
+                    >
+                      <p className="cursor-pointer text-white text-center font-semibold font-sans text-2xl bg-blue-700 rounded-full mt-5 p-3 hover:bg-blue-600">
+                        My Projects
+                      </p>
+                    </Link>
 
-                  <ul className="mt-5">
-                    <SocialButton
-                      link="https://github.com/JosephBuchholz/"
-                      imageSrc="images/github_icon.png"
-                      text="GitHub"
-                    ></SocialButton>
-                    <SocialButton
-                      link="https://www.linkedin.com/in/joseph-buchholz-8b6769323/"
-                      imageSrc="images/linkedin_icon.png"
-                      text="LinkedIn"
-                    ></SocialButton>
-                    <SocialButton
-                      link="https://wsu.joinhandshake.com/profiles/43552814/"
-                      imageSrc="images/handshake_icon.png"
-                      text="Handshake"
-                    ></SocialButton>
-                    <SocialButton
-                      link="mailto:joseph.buchholz@outlook.com"
-                      imageSrc="images/email_icon.png"
-                      text="joseph.buchholz@outlook.com"
-                    ></SocialButton>
-                  </ul>
+                    <ul className="mt-5">
+                      <SocialButton
+                        link="https://github.com/JosephBuchholz/"
+                        imageSrc="images/github_icon.png"
+                        text="GitHub"
+                      ></SocialButton>
+                      <SocialButton
+                        link="https://www.linkedin.com/in/joseph-buchholz-8b6769323/"
+                        imageSrc="images/linkedin_icon.png"
+                        text="LinkedIn"
+                      ></SocialButton>
+                      <SocialButton
+                        link="https://wsu.joinhandshake.com/profiles/43552814/"
+                        imageSrc="images/handshake_icon.png"
+                        text="Handshake"
+                      ></SocialButton>
+                      <SocialButton
+                        link="mailto:joseph.buchholz@outlook.com"
+                        imageSrc="images/email_icon.png"
+                        text="joseph.buchholz@outlook.com"
+                      ></SocialButton>
+                    </ul>
+                  </div>
                 </div>
-              </div>
 
-              {sideImage}
+                {sideImage}
+              </div>
             </div>
-          </div>
+          ) : (
+            <></>
+          )}
         </section>
         <div className="p-8 bg-white relative z-10"></div>
         <section id="skills-marker" className="bg-white relative z-10">
@@ -199,68 +222,69 @@ export default function HomePage() {
           <br className="m-4"></br>
           <h2 className="font-semibold text-4xl m-4">Projects</h2>
 
-          <HighlightDiv
-            highlight={
-              highlightSkill == "C/C++" ||
-              highlightSkill == "Python" ||
-              highlightSkill == "JavaScript" ||
-              highlightSkill == "HTML" ||
-              highlightSkill == "Django" ||
-              highlightSkill == "React" ||
-              highlightSkill == "Tailwind CSS" ||
-              highlightSkill == "Kotlin" ||
-              highlightSkill == "Jetpack Compose" ||
-              highlightSkill == "Emscripten"
-            }
-          >
-            <p className="ml-4 font-semibold">
-              Android/Web Music Application - 2021 to Present
-            </p>
-            <p className="ml-4">
-              Description: A music application that displays standard music
-              notation and guitar tablature with live audio playback. The
-              application was originally developed for Android using Kotlin and
-              C++. Though now I am porting the project to the Web for greater
-              accessibility using Emscripten, Django, and React.
-            </p>
-          </HighlightDiv>
+          <div className="grid 2xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4 m-4">
+            <ProjectPanel
+              title="Musique/Harmonically"
+              description="A music application that displays standard music notation and
+                  guitar tablature with live audio playback. The application was
+                  originally developed for Android using *Kotlin* and *C++*. Though
+                  now the project is being ported to the Web for greater
+                  accessibility using *Emscripten*, *Django*, and *React*."
+              highlight={
+                highlightSkill == "C/C++" ||
+                highlightSkill == "Python" ||
+                highlightSkill == "JavaScript" ||
+                highlightSkill == "HTML" ||
+                highlightSkill == "Django" ||
+                highlightSkill == "React" ||
+                highlightSkill == "Tailwind CSS" ||
+                highlightSkill == "Kotlin" ||
+                highlightSkill == "Jetpack Compose" ||
+                highlightSkill == "Emscripten"
+              }
+              highlightSkill={highlightSkill}
+            ></ProjectPanel>
 
-          <br></br>
+            <ProjectPanel
+              title="Song Scripture Referencer"
+              description="A simple Web application made with *Django* and *React* that
+                  displays Bible references for the lyrics of Christian songs
+                  and hymns."
+              githubLink="https://github.com/JosephBuchholz/scripture-ref-songs"
+              highlight={
+                highlightSkill == "Python" ||
+                highlightSkill == "JavaScript" ||
+                highlightSkill == "HTML" ||
+                highlightSkill == "Django" ||
+                highlightSkill == "React" ||
+                highlightSkill == "Tailwind CSS"
+              }
+              highlightSkill={highlightSkill}
+            ></ProjectPanel>
 
-          <HighlightDiv
-            highlight={
-              highlightSkill == "Python" ||
-              highlightSkill == "JavaScript" ||
-              highlightSkill == "HTML" ||
-              highlightSkill == "Django" ||
-              highlightSkill == "React" ||
-              highlightSkill == "Tailwind CSS"
-            }
-          >
-            <p className="ml-4 font-semibold">
-              Song Scripture Referencer - 2024 to Present
-            </p>
-            <p className="ml-4">
-              Description: A simple Web application made with Django and React
-              that displays Bible references for the lyrics of Christian songs
-              and hymns.
-            </p>
-          </HighlightDiv>
+            <ProjectPanel
+              title="Various Video Game Projects"
+              description="Multiple projects consisting of programming and designing
+                  video games. Most of these video games were programmed using
+                  the Godot game engine (using *Python*/GDScript) or *C++*."
+              highlight={
+                highlightSkill == "C/C++" || highlightSkill == "Python"
+              }
+              highlightSkill={highlightSkill}
+            ></ProjectPanel>
 
-          <br></br>
-
-          <HighlightDiv
-            highlight={highlightSkill == "C/C++" || highlightSkill == "Python"}
-          >
-            <p className="ml-4 font-semibold">
-              Video Game Projects - 2020 to 2022
-            </p>
-            <p className="ml-4">
-              Description: Multiple projects consisting of programming and
-              designing video games. Most of these video games were programmed
-              using the Godot game engine (using Python/GDScript) or C++.
-            </p>
-          </HighlightDiv>
+            <ProjectPanel
+              title="My Portfolio Website"
+              description="This simple portfolio website made with *React* and *Tailwind CSS*."
+              highlight={
+                highlightSkill == "React" ||
+                highlightSkill == "Tailwind CSS" ||
+                highlightSkill == "HTML" ||
+                highlightSkill == "JavaScript"
+              }
+              highlightSkill={highlightSkill}
+            ></ProjectPanel>
+          </div>
 
           <br></br>
         </section>
