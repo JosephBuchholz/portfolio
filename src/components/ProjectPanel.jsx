@@ -7,6 +7,7 @@ export default function ProjectPanel({
   githubLink = "",
   highlight,
   highlightSkill = "",
+  onClick = () => {},
 }) {
   let links = [];
 
@@ -17,7 +18,7 @@ export default function ProjectPanel({
         <a className="" href={githubLink} target="_blank">
           <img
             className="h-10 hover:opacity-80"
-            src="images/github_icon.png"
+            src="/images/github_icon.png"
           ></img>
         </a>
       </div>
@@ -63,7 +64,9 @@ export default function ProjectPanel({
       highlight={highlight}
     >
       <div className="flex flex-col">
-        <p className="font-semibold">{title}</p>
+        <p className="font-semibold text-2xl cursor-pointer" onClick={onClick}>
+          {title}
+        </p>
         <p className="">{newWords}</p>
         <div className="flex-1">{links}</div>
       </div>

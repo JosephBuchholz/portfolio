@@ -1,46 +1,109 @@
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-scroll";
 
-export default function Header() {
-  return <NavigationBar></NavigationBar>;
+export default function Header({ useURLNavigation = false }) {
+  return <NavigationBar useURLNavigation={useURLNavigation}></NavigationBar>;
 }
 
-function NavigationBar() {
+function NavigationBar({ useURLNavigation = false }) {
   return (
     <div className="flex bg-gray-50 top-0 w-screen h-16 justify-between z-50 sticky">
       <div className="flex justify-center items-center text-center">
-        <Link
-          smooth={true}
-          spy={true}
-          to="home-marker"
+        <NavLink
+          toID="home-marker"
+          toURL="/home"
           className="text-3xl font-bold text-black m-6 p-1 cursor-pointer"
+          useURLNavigation={useURLNavigation}
         >
-          <img className="h-6" src="images/logo.svg"></img>
-        </Link>
+          <img className="h-6" src="/images/logo.svg"></img>
+        </NavLink>
       </div>
 
       <ul className="flex justify-center items-center mr-8">
-        <NavLink to="home-marker">Home</NavLink>
-        <NavLink to="skills-marker">Skills</NavLink>
-        <NavLink to="projects-marker">Projects</NavLink>
+        <ListLink
+          toID="home-marker"
+          toURL="/home"
+          useURLNavigation={useURLNavigation}
+        >
+          Home
+        </ListLink>
+        <ListLink
+          toID="skills-marker"
+          toURL="/home/skills"
+          useURLNavigation={useURLNavigation}
+        >
+          Skills
+        </ListLink>
+        <ListLink
+          toID="projects-marker"
+          toURL="/home/projects"
+          useURLNavigation={useURLNavigation}
+        >
+          Projects
+        </ListLink>
       </ul>
     </div>
   );
 }
 
-function NavLink({ to, children }) {
+function ListLink({
+  toID = "",
+  toURL = "",
+  useURLNavigation = false,
+  children,
+}) {
   return (
     <>
       <li className="text-center m-6 p-1">
-        <Link
+        <NavLink
           activeClass="active"
-          smooth={true}
-          spy={true}
-          to={to}
+          toID={toID}
+          toURL={toURL}
+          useURLNavigation={useURLNavigation}
           className="hover:text-blue-600 transition-colors ease-in-out delay-50 font-semibold hover:underline hover:underline-offset-4 hover:decoration-2 cursor-pointer"
         >
           {children}
-        </Link>
+        </NavLink>
       </li>
     </>
   );
+}
+
+function NavLink({
+  toID = "",
+  toURL = "",
+  useURLNavigation = false,
+  activeClass = "",
+  className = "",
+  children,
+}) {
+  const navigate = useNavigate();
+
+  let link = <></>;
+  if (useURLNavigation) {
+    link = (
+      <p
+        className={className}
+        onClick={() => {
+          navigate(toURL);
+        }}
+      >
+        {children}
+      </p>
+    );
+  } else {
+    link = (
+      <Link
+        activeClass={activeClass}
+        smooth={true}
+        spy={true}
+        to={toID}
+        className={className}
+      >
+        {children}
+      </Link>
+    );
+  }
+
+  return <>{link}</>;
 }

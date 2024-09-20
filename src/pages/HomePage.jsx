@@ -1,10 +1,11 @@
-import { useLayoutEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import Header from "../components/Header";
 import SocialButton from "../components/SocialButton";
 import SkillButton from "../components/SkillButton";
 import ProjectPanel from "../components/ProjectPanel";
-import { Link } from "react-scroll";
+import { Link, scroller } from "react-scroll";
 import Footer from "../components/Footer";
+import { useNavigate, useParams } from "react-router-dom";
 
 export default function HomePage() {
   const [windowSize, setWindowSize] = useState([
@@ -13,8 +14,29 @@ export default function HomePage() {
   ]);
 
   const [currentScrollPosition, setCurrentScrollPosition] = useState(0.0);
-
   const [highlightSkill, setHighlightSkill] = useState("");
+
+  const navigate = useNavigate();
+
+  const section = useParams();
+
+  useEffect(() => {
+    console.log("section useEffect: ", section);
+
+    if (section.section == "skills") {
+      scroller.scrollTo("skills-marker", {
+        duration: 1500,
+        delay: 100,
+        smooth: true,
+      });
+    } else if (section.section == "projects") {
+      scroller.scrollTo("projects-marker", {
+        duration: 1500,
+        delay: 100,
+        smooth: true,
+      });
+    }
+  }, [section]);
 
   // add event listeners
   useLayoutEffect(() => {
@@ -40,14 +62,14 @@ export default function HomePage() {
     sideImage = (
       <div className="w-1/2 h-full bg-blue-700 flex-1 content-center">
         <div className="left-0 ml-5 w-80 h-80 rounded-full bg-slate-200 overflow-clip">
-          <img className="object-cover" src="images/me.jpg"></img>
+          <img className="object-cover" src="/images/me.jpg"></img>
         </div>
       </div>
     );
   } else {
     sideImage = (
       <div className="w-1/2 h-full bg-blue-700 flex-1 overflow-clip">
-        <img className="h-full object-cover" src="images/me.jpg"></img>
+        <img className="h-full object-cover" src="/images/me.jpg"></img>
       </div>
     );
   }
@@ -92,22 +114,22 @@ export default function HomePage() {
                     <ul className="mt-5">
                       <SocialButton
                         link="https://github.com/JosephBuchholz/"
-                        imageSrc="images/github_icon.png"
+                        imageSrc="/images/github_icon.png"
                         text="GitHub"
                       ></SocialButton>
                       <SocialButton
                         link="https://www.linkedin.com/in/joseph-buchholz-8b6769323/"
-                        imageSrc="images/linkedin_icon.png"
+                        imageSrc="/images/linkedin_icon.png"
                         text="LinkedIn"
                       ></SocialButton>
                       <SocialButton
                         link="https://wsu.joinhandshake.com/profiles/43552814/"
-                        imageSrc="images/handshake_icon.png"
+                        imageSrc="/images/handshake_icon.png"
                         text="Handshake"
                       ></SocialButton>
                       <SocialButton
                         link="mailto:joseph.buchholz@outlook.com"
-                        imageSrc="images/email_icon.png"
+                        imageSrc="/images/email_icon.png"
                         text="joseph.buchholz@outlook.com"
                       ></SocialButton>
                     </ul>
@@ -159,6 +181,15 @@ export default function HomePage() {
               highlight
               clickable
               onClick={() => {
+                setHighlightSkill("React");
+              }}
+            >
+              React
+            </SkillButton>
+            <SkillButton
+              highlight
+              clickable
+              onClick={() => {
                 setHighlightSkill("HTML");
               }}
             >
@@ -174,14 +205,6 @@ export default function HomePage() {
               }}
             >
               Django
-            </SkillButton>
-            <SkillButton
-              clickable
-              onClick={() => {
-                setHighlightSkill("React");
-              }}
-            >
-              React
             </SkillButton>
             <SkillButton
               clickable
@@ -243,6 +266,9 @@ export default function HomePage() {
                 highlightSkill == "Emscripten"
               }
               highlightSkill={highlightSkill}
+              onClick={() => {
+                navigate("/harmonically");
+              }}
             ></ProjectPanel>
 
             <ProjectPanel
@@ -260,6 +286,9 @@ export default function HomePage() {
                 highlightSkill == "Tailwind CSS"
               }
               highlightSkill={highlightSkill}
+              onClick={() => {
+                navigate("/scripture-referencer");
+              }}
             ></ProjectPanel>
 
             <ProjectPanel
@@ -271,6 +300,9 @@ export default function HomePage() {
                 highlightSkill == "C/C++" || highlightSkill == "Python"
               }
               highlightSkill={highlightSkill}
+              onClick={() => {
+                navigate("/video-game-projects");
+              }}
             ></ProjectPanel>
 
             <ProjectPanel

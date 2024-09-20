@@ -1,6 +1,6 @@
 import { HighlightSpan } from "./Highlighters";
 
-export default function Footer({ highlightSkill }) {
+export default function Footer({ highlightSkill = "" }) {
   return (
     <footer className="h-52 p-4 bg-slate-900 relative z-10 bottom-0 w-full">
       <a href="https://www.freepik.com/icon/email_542689#fromView=keyword&page=1&position=0&uuid=9cf6f7e3-e86b-41c6-8051-5349d31a321e">
