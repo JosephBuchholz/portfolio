@@ -82,7 +82,7 @@ export default function HomePage() {
   }
 
   return (
-    <main id="home-marker" className="flex flex-col">
+    <main id="home-marker" className="flex flex-col overflow-x-hidden">
       <Header></Header>
 
       <div>
