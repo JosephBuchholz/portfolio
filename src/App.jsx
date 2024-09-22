@@ -1,6 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import HarmonicallyProjectPage from "./pages/HarmonicallyProjectPage";
+import ScriptureRefProjectPage from "./pages/ScriptureRefProjectPage";
+import VideoGameProjectsPage from "./pages/VideoGameProjectsPage";
 
 export default function App() {
   return (
@@ -13,6 +15,14 @@ export default function App() {
           <Route
             path="/harmonically"
             element={<HarmonicallyProjectPage></HarmonicallyProjectPage>}
+          ></Route>
+          <Route
+            path="/scripture-referencer"
+            element={<ScriptureRefProjectPage></ScriptureRefProjectPage>}
+          ></Route>
+          <Route
+            path="/video-game-projects"
+            element={<VideoGameProjectsPage></VideoGameProjectsPage>}
           ></Route>
         </Routes>
       </BrowserRouter>

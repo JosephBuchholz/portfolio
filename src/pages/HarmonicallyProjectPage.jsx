@@ -1,20 +1,11 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { useNavigate } from "react-router-dom";
+import {
+  ProjectImage,
+  ProjectParagraph,
+} from "../components/ProjectPageComponents";
 
 export default function HarmonicallyProjectPage() {
-  const navigate = useNavigate();
-
-  const paragraphs = [
-    <p className="m-5 text-md">
-      Harmonically (originally named Musique) is a music application that
-      displays standard music notation, guitar tablature, and guitar chord
-      sheets with live audio playback. The application was originally developed
-      for Android using Kotlin and C++. Though now the project has been ported
-      to the Web for greater accessibility using Emscripten, Django, and React.
-    </p>,
-  ];
-
   return (
     <main className="flex flex-col overflow-x-hidden">
       <Header useURLNavigation={true}></Header>
@@ -25,20 +16,22 @@ export default function HarmonicallyProjectPage() {
 
           <div className="flex flex-col xl:flex-row">
             <div className="flex-1">
-              <p className="m-5 text-md">
+              <ProjectParagraph>
                 Harmonically (originally named Musique) is a music application
                 that displays standard music notation, guitar tablature, and
                 guitar chord sheets with live audio playback. The application
                 was originally developed for Android using Kotlin and C++.
                 Though now the project has been ported to the Web for greater
                 accessibility using Emscripten, Django, and React.
-              </p>
-              <p className="m-5 text-md">
+              </ProjectParagraph>
+
+              <ProjectParagraph>
                 The project has been in development for over three years and
                 consists of over 25,000 lines of code. Over that time the
                 project has gone through a few different phases and prototypes.
-              </p>
-              <p className="m-5 text-md">
+              </ProjectParagraph>
+
+              <ProjectParagraph>
                 The first prototype started out as a Windows and Anroid
                 application created using C++ and a custom UI library. This
                 version was way to ambitious as developing a UI library along
@@ -46,8 +39,9 @@ export default function HarmonicallyProjectPage() {
                 Eventually that version was scrapped. Though this version only
                 had a few unfinnished features, so not much was lost on this
                 prototype.
-              </p>
-              <p className="m-5 text-md">
+              </ProjectParagraph>
+
+              <ProjectParagraph>
                 The second version was developed for just Android using Kotlin
                 for the UI and C++ for the logic. C++ was used since code could
                 then be reused from the previous prototype. This version was
@@ -63,8 +57,9 @@ export default function HarmonicallyProjectPage() {
                 on Android. An attempt was made to use Kotlin Multiplatform to
                 make a cross-platform application, but in the end it did not
                 work out.
-              </p>
-              <p className="m-5 text-md">
+              </ProjectParagraph>
+
+              <ProjectParagraph>
                 Hence, the third and current version was created. It is
                 developed for the web using C++, React, and Django. Because a
                 significant portion of the second version's code was written in
@@ -79,35 +74,25 @@ export default function HarmonicallyProjectPage() {
                 the feature present in the second version inculde: a chord sheet
                 editor for easily creating guitar chord sheets and a user
                 authentication system to save those created chord sheets.
-              </p>
-              <p className="m-5 text-md">
+              </ProjectParagraph>
+
+              <ProjectParagraph>
                 In the end, this project is still being developed (though
                 admittedly progress has significantly slowed for various
                 reasons). Even if this application is never released, it will
                 still prove to be an amazing learning experince.
-              </p>
+              </ProjectParagraph>
             </div>
 
             <div className="flex-1">
-              <div className="m-10">
-                <p className="font-semibold text-2xl m-2 text-center">
-                  Guitar Chord Sheet Editor
-                </p>
-                <img
-                  className="border border-slate-700 p-2"
-                  src="/images/harmonically_editor.png"
-                ></img>
-              </div>
-
-              <div className="m-10">
-                <p className="font-semibold text-2xl m-2 text-center">
-                  Custom Sheet Music Rendering
-                </p>
-                <img
-                  className="border border-slate-700 p-2"
-                  src="/images/harmonically_pdf.png"
-                ></img>
-              </div>
+              <ProjectImage
+                title="Guitar Chord Sheet Editor"
+                src="/images/harmonically_editor.png"
+              ></ProjectImage>
+              <ProjectImage
+                title="Custom Sheet Music Rendering"
+                src="/images/harmonically_pdf.png"
+              ></ProjectImage>
             </div>
           </div>
         </section>

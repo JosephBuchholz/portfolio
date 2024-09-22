@@ -3,7 +3,7 @@ import Header from "../components/Header";
 import SocialButton from "../components/SocialButton";
 import SkillButton from "../components/SkillButton";
 import ProjectPanel from "../components/ProjectPanel";
-import { Link, scroller } from "react-scroll";
+import { animateScroll, Link, scroller } from "react-scroll";
 import Footer from "../components/Footer";
 import { useNavigate, useParams } from "react-router-dom";
 
@@ -21,8 +21,6 @@ export default function HomePage() {
   const section = useParams();
 
   useEffect(() => {
-    console.log("section useEffect: ", section);
-
     if (section.section == "skills") {
       scroller.scrollTo("skills-marker", {
         duration: 1500,
@@ -267,6 +265,7 @@ export default function HomePage() {
               }
               highlightSkill={highlightSkill}
               onClick={() => {
+                animateScroll.scrollToTop({ duration: 0 }); // reset scroll
                 navigate("/harmonically");
               }}
             ></ProjectPanel>
@@ -287,6 +286,7 @@ export default function HomePage() {
               }
               highlightSkill={highlightSkill}
               onClick={() => {
+                animateScroll.scrollToTop({ duration: 0 }); // reset scroll
                 navigate("/scripture-referencer");
               }}
             ></ProjectPanel>
@@ -301,6 +301,7 @@ export default function HomePage() {
               }
               highlightSkill={highlightSkill}
               onClick={() => {
+                animateScroll.scrollToTop({ duration: 0 }); // reset scroll
                 navigate("/video-game-projects");
               }}
             ></ProjectPanel>
