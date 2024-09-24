@@ -22,40 +22,37 @@ export default function HarmonicallyProjectPage() {
                 guitar chord sheets with live audio playback. The application
                 was originally developed for Android using Kotlin and C++.
                 Though now the project has been ported to the Web for greater
-                accessibility using Emscripten, Django, and React.
+                accessibility using Emscripten, Django, and React. The project
+                has been in development for over three years and consists of
+                over 25,000 lines of code. Over that time the project has gone
+                through a few different phases and prototypes.
               </ProjectParagraph>
 
               <ProjectParagraph>
-                The project has been in development for over three years and
-                consists of over 25,000 lines of code. Over that time the
-                project has gone through a few different phases and prototypes.
-              </ProjectParagraph>
-
-              <ProjectParagraph>
-                The first prototype started out as a Windows and Anroid
+                The first prototype started out as a Windows and Android
                 application created using C++ and a custom UI library. This
-                version was way to ambitious as developing a UI library along
-                side the application was too much for one person handle.
+                version was way too ambitious as developing a UI library
+                alongside the application was too much for one person handle.
                 Eventually that version was scrapped. Though this version only
-                had a few unfinnished features, so not much was lost on this
+                had a few unfinished features, so not much was lost on this
                 prototype.
               </ProjectParagraph>
 
               <ProjectParagraph>
-                The second version was developed for just Android using Kotlin
+                The second version was developed just for Android using Kotlin
                 for the UI and C++ for the logic. C++ was used since code could
                 then be reused from the previous prototype. This version was
                 much easier to build since it just used Android's native UI
-                system. This allowed for a greater focus on the application its
-                self. Many features were developed for this version compared to
-                the first prototype. Features included: a custom sheet music
-                rendering engine that rendered MusicXML formated files, a live
+                system. This allowed for a greater focus on the application
+                itself. Many features were developed for this version compared
+                to the first prototype. Features included: a custom sheet music
+                rendering engine that rendered MusicXML formatted files, a live
                 audio playback system that performed the sheet music that was
                 displayed on the screen, and a song selection screen that
-                retreived MusicXML files from a database on a remote server.
-                Ultimatly this version was fine, except that it could only run
+                retrieved MusicXML files from a database on a remote server.
+                Ultimately this version was fine, except that it could only run
                 on Android. An attempt was made to use Kotlin Multiplatform to
-                make a cross-platform application, but in the end it did not
+                make a cross-platform application, but in the end, it did not
                 work out.
               </ProjectParagraph>
 
@@ -65,13 +62,13 @@ export default function HarmonicallyProjectPage() {
                 significant portion of the second version's code was written in
                 C++, porting it to the web did not take as much effort as would
                 normally be required. Emscripten was used to compile the C++ to
-                WebAsembly so that it could be run in the browser. The
+                WebAssembly so that it could be run in the browser. The
                 JavaScript React framework was used for the frontend UI and
                 rendering and TailwindCSS was used for styling. And the backend
                 Python framework Django was used to deliver the website, to
                 provide an API for getting MusicXML files from the database, and
-                to faciliate an authentication system. Features in addition to
-                the feature present in the second version inculde: a chord sheet
+                to facilitate an authentication system. Features in addition to
+                the feature present in the second version include: a chord sheet
                 editor for easily creating guitar chord sheets and a user
                 authentication system to save those created chord sheets.
               </ProjectParagraph>

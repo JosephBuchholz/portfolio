@@ -245,7 +245,7 @@ export default function HomePage() {
 
           <div className="grid 2xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4 m-4">
             <ProjectPanel
-              title="Musique/Harmonically"
+              title="Harmonically (Musique)"
               description="A music application that displays standard music notation and
                   guitar tablature with live audio playback. The application was
                   originally developed for Android using *Kotlin* and *C++*. Though
