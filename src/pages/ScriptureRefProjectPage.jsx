@@ -4,6 +4,7 @@ import {
   ProjectImage,
   ProjectParagraph,
 } from "../components/ProjectPageComponents";
+import { GithubLink } from "../components/Links";
 
 export default function ScriptureRefProjectPage() {
   return (
@@ -12,21 +13,12 @@ export default function ScriptureRefProjectPage() {
 
       <div>
         <section className="min-h-screen ml-20 mr-20">
-          <div className="flex flex-row">
+          <div className="flex flex-row items-center">
             <h1 className="font-bold text-4xl m-5">
               Scripture Song Referencer
             </h1>
             <div className="min-w-10">
-              <a
-                className=""
-                href={"https://github.com/JosephBuchholz/scripture-ref-songs"}
-                target="_blank"
-              >
-                <img
-                  className="h-10 hover:opacity-80"
-                  src="/images/github_icon.png"
-                ></img>
-              </a>
+              <GithubLink url="https://github.com/JosephBuchholz/scripture-ref-songs"></GithubLink>
             </div>
           </div>
 

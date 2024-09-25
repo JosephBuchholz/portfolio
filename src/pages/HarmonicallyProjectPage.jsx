@@ -4,6 +4,7 @@ import {
   ProjectImage,
   ProjectParagraph,
 } from "../components/ProjectPageComponents";
+import { GithubLink } from "../components/Links";
 
 export default function HarmonicallyProjectPage() {
   return (
@@ -12,7 +13,12 @@ export default function HarmonicallyProjectPage() {
 
       <div>
         <section className="min-h-screen ml-20 mr-20">
-          <h1 className="font-bold text-4xl m-5">Harmonically</h1>
+          <div className="flex flex-row items-center">
+            <h1 className="font-bold text-4xl m-5">Harmonically</h1>
+            <div className="min-w-10">
+              <GithubLink url="https://github.com/JosephBuchholz/musique-website"></GithubLink>
+            </div>
+          </div>
 
           <div className="flex flex-col xl:flex-row">
             <div className="flex-1">
@@ -79,6 +85,11 @@ export default function HarmonicallyProjectPage() {
                 reasons). Even if this application is never released, it will
                 still prove to be an amazing learning experince.
               </ProjectParagraph>
+
+              <ProjectImage
+                title="Android Version"
+                src="/images/harmonically_android_version.jpg"
+              ></ProjectImage>
             </div>
 
             <div className="flex-1">

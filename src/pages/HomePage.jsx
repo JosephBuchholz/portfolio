@@ -249,8 +249,9 @@ export default function HomePage() {
               description="A music application that displays standard music notation and
                   guitar tablature with live audio playback. The application was
                   originally developed for Android using *Kotlin* and *C++*. Though
-                  now the project is being ported to the Web for greater
+                  now the project has been ported to the Web for greater
                   accessibility using *Emscripten*, *Django*, and *React*."
+              githubLink="https://github.com/JosephBuchholz/musique-website"
               highlight={
                 highlightSkill == "C/C++" ||
                 highlightSkill == "Python" ||
@@ -293,9 +294,9 @@ export default function HomePage() {
 
             <ProjectPanel
               title="Various Video Game Projects"
-              description="Multiple projects consisting of programming and designing
-                  video games. Most of these video games were programmed using
-                  the Godot game engine (using *Python*/GDScript) or *C++*."
+              description="Multiple video game projects. Most of these video games were programmed using
+                  the Godot game engine using GDScript and/or *C++*. Some of them were developed
+                  purly with *Python* using Pygame."
               highlight={
                 highlightSkill == "C/C++" || highlightSkill == "Python"
               }

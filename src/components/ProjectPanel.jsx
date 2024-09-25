@@ -1,5 +1,6 @@
 import HighlightDiv from "../components/Highlighters";
 import { HighlightSpan } from "./Highlighters";
+import { GithubLink } from "./Links";
 
 export default function ProjectPanel({
   title,
@@ -15,12 +16,7 @@ export default function ProjectPanel({
   if (githubLink != "") {
     links.push(
       <div className="w-10 ml-auto mt-auto mr-0 mb-0" key={"github-link"}>
-        <a className="" href={githubLink} target="_blank">
-          <img
-            className="h-10 hover:opacity-80"
-            src="/images/github_icon.png"
-          ></img>
-        </a>
+        <GithubLink url={githubLink}></GithubLink>
       </div>
     );
   }
@@ -64,7 +60,10 @@ export default function ProjectPanel({
       highlight={highlight}
     >
       <div className="flex flex-col">
-        <p className="font-semibold text-2xl cursor-pointer" onClick={onClick}>
+        <p
+          className="font-semibold text-2xl cursor-pointer hover:text-blue-600"
+          onClick={onClick}
+        >
           {title}
         </p>
         <p className="">{newWords}</p>

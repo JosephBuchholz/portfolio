@@ -13,7 +13,10 @@ export default function VideoGameProjectsPage() {
 
           <div className="flex flex-col xl:flex-row">
             <div className="flex-1">
-              <ProjectParagraph>Hello</ProjectParagraph>
+              <ProjectParagraph>
+                These various video game projects were developed over many
+                years.
+              </ProjectParagraph>
             </div>
 
             <div className="flex-1"></div>
