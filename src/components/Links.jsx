@@ -8,3 +8,11 @@ export function GithubLink({ url }) {
     </a>
   );
 }
+
+export function TextLink({ children, url }) {
+  return (
+    <a className="text-blue-500 underline" href={url} target="_blank">
+      {children}
+    </a>
+  );
+}

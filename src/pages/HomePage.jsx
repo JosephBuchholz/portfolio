@@ -56,7 +56,7 @@ export default function HomePage() {
 
   // change how my image looks depending on screen size
   let sideImage = <></>;
-  if (windowSize[0] > 500) {
+  if (windowSize[0] > 640) {
     sideImage = (
       <div className="w-1/2 h-full bg-blue-700 flex-1 content-center">
         <div className="left-0 ml-5 w-80 h-80 rounded-full bg-slate-200 overflow-clip">
@@ -66,8 +66,8 @@ export default function HomePage() {
     );
   } else {
     sideImage = (
-      <div className="w-1/2 h-full bg-blue-700 flex-1 overflow-clip">
-        <img className="h-full object-cover" src="/images/me.jpg"></img>
+      <div className="w-full h-full bg-blue-700 flex-1 overflow-clip">
+        <img className="w-full object-cover" src="/images/me.jpg"></img>
       </div>
     );
   }
@@ -87,11 +87,11 @@ export default function HomePage() {
         <section className="h-screen">
           {showTopBackground ? (
             <div className="fixed">
-              <div className="flex flex-row flex-1 h-screen w-screen">
+              <div className="flex flex-col sm:flex-row flex-1 h-screen w-screen">
                 <div className="flex-1 flex justify-center items-center">
-                  <div className="">
-                    <h1 className="font-sans text-4xl">Hello</h1>
-                    <h1 className="font-semibold font-sans text-4xl">
+                  <div className="m-10">
+                    <h1 className="font-sans text-lg md:text-4xl">Hello</h1>
+                    <h1 className="font-semibold font-sans text-lg md:text-4xl">
                       I'm <br className="md:hidden"></br>
                       <span className="font-bold text-blue-600">
                         Joseph Buchholz
@@ -104,12 +104,12 @@ export default function HomePage() {
                       spy={true}
                       to="projects-marker"
                     >
-                      <p className="cursor-pointer text-white text-center font-semibold font-sans text-2xl bg-blue-700 rounded-full mt-5 p-3 hover:bg-blue-600">
+                      <p className="cursor-pointer text-white text-center font-semibold font-sans text-sm sm:text-base md:text-2xl bg-blue-700 rounded-full mt-5 p-3 hover:bg-blue-600">
                         My Projects
                       </p>
                     </Link>
 
-                    <ul className="mt-5">
+                    <ul className="mt-5 mb-10">
                       <SocialButton
                         link="https://github.com/JosephBuchholz/"
                         imageSrc="/images/github_icon.png"

@@ -3,6 +3,7 @@ import Footer from "../components/Footer";
 import {
   ProjectImage,
   ProjectParagraph,
+  ProjectTitle,
 } from "../components/ProjectPageComponents";
 import { GithubLink } from "../components/Links";
 
@@ -12,9 +13,11 @@ export default function HarmonicallyProjectPage() {
       <Header useURLNavigation={true}></Header>
 
       <div>
-        <section className="min-h-screen ml-20 mr-20">
+        <section className="min-h-screen md:ml-20 md:mr-20">
           <div className="flex flex-row items-center">
-            <h1 className="font-bold text-4xl m-5">Harmonically</h1>
+            <ProjectTitle className="font-bold text-4xl m-5">
+              Harmonically
+            </ProjectTitle>
             <div className="min-w-10">
               <GithubLink url="https://github.com/JosephBuchholz/musique-website"></GithubLink>
             </div>

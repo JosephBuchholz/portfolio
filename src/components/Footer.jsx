@@ -22,6 +22,9 @@ export default function Footer({ highlightSkill = "" }) {
           Tailwind CSS
         </HighlightSpan>
       </p>
+      <p className="text-slate-400 m-5 flex flex-row whitespace-pre">
+        &copy; 2024 Joseph Buchholz
+      </p>
     </footer>
   );
 }
