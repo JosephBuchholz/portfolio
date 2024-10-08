@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-scroll";
+import useWindowDimensions from "../hooks/useWindowDimensionsHook";
 
 /**
  * Basic reusable header.
@@ -9,6 +10,9 @@ export default function Header({ useURLNavigation = false }) {
 }
 
 function NavigationBar({ useURLNavigation = false }) {
+  // Window width and height
+  const { height, width } = useWindowDimensions();
+
   return (
     <div className="flex bg-gray-50 top-0 w-screen h-16 justify-between z-50 sticky">
       <div className="flex justify-center items-center text-center">
@@ -23,13 +27,17 @@ function NavigationBar({ useURLNavigation = false }) {
       </div>
 
       <ul className="flex justify-center items-center mr-8">
-        <ListLink
-          toID="home-marker"
-          toURL="/home"
-          useURLNavigation={useURLNavigation}
-        >
-          Home
-        </ListLink>
+        {width > 640 ? (
+          <ListLink
+            toID="home-marker"
+            toURL="/home"
+            useURLNavigation={useURLNavigation}
+          >
+            Home
+          </ListLink>
+        ) : (
+          <></>
+        )}
         <ListLink
           toID="skills-marker"
           toURL="/home/skills"

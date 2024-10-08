@@ -22,6 +22,8 @@ export default function ScriptureRefProjectPage() {
             <div className="min-w-10">
               <GithubLink url="https://github.com/JosephBuchholz/scripture-ref-songs"></GithubLink>
             </div>
+
+            <p className="ml-10">July 2024 - Present</p>
           </div>
 
           <div className="flex flex-col xl:flex-row">

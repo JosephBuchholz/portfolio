@@ -6,15 +6,14 @@ import ProjectPanel from "../components/ProjectPanel";
 import { animateScroll, Link, scroller } from "react-scroll";
 import Footer from "../components/Footer";
 import { useNavigate, useParams } from "react-router-dom";
+import useWindowDimensions from "../hooks/useWindowDimensionsHook";
 
 /**
  * The home page.
  */
 export default function HomePage() {
-  const [windowSize, setWindowSize] = useState([
-    window.innerWidth,
-    window.innerHeight,
-  ]);
+  // Window width and height
+  const { height, width } = useWindowDimensions();
 
   // The scroll position on the page
   const [currentScrollPosition, setCurrentScrollPosition] = useState(0.0);
@@ -46,25 +45,20 @@ export default function HomePage() {
 
   // add event listeners
   useLayoutEffect(() => {
-    function onResizeListener() {
-      setWindowSize([window.innerWidth, window.innerHeight]);
-    }
-
     function onScrollListener() {
       setCurrentScrollPosition(window.scrollY);
     }
 
-    window.addEventListener("resize", onResizeListener);
     window.addEventListener("scroll", onScrollListener);
     return () => {
-      window.removeEventListener("resize", onResizeListener);
       window.removeEventListener("scroll", onScrollListener);
     };
   }, []);
 
   // change how main headshot image looks depending on screen size
   let sideImage = <></>;
-  if (windowSize[0] > 640) {
+  let footerImage = <></>;
+  if (width > 640) {
     sideImage = (
       <div className="w-1/2 h-full bg-blue-700 flex-1 content-center">
         <div className="left-0 ml-5 w-80 h-80 rounded-full bg-slate-200 overflow-clip">
@@ -73,9 +67,11 @@ export default function HomePage() {
       </div>
     );
   } else {
-    sideImage = (
+    sideImage = <div className="w-full h-full bg-blue-700 flex-1"></div>;
+
+    footerImage = (
       <div className="w-full h-full bg-blue-700 flex-1 overflow-clip">
-        <img className="w-full object-cover" src="/images/me.jpg"></img>
+        <img className="w-full" src="/images/me2.jpg"></img>
       </div>
     );
   }
@@ -83,7 +79,7 @@ export default function HomePage() {
   // whether the top background (the fixed div element that contains my picture, social buttons, and "Hello I'm..." text) should be displayed
   // hides it so that the over scroll at the bottom does not show it
   let showTopBackground = true;
-  if (currentScrollPosition > windowSize[1]) {
+  if (currentScrollPosition > height) {
     showTopBackground = false;
   }
 
@@ -346,6 +342,8 @@ export default function HomePage() {
 
           <br></br>
         </section>
+
+        {footerImage}
 
         <Footer highlightSkill={highlightSkill}></Footer>
       </div>

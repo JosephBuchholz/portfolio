@@ -17,7 +17,11 @@ export default function VideoGameProjectsPage() {
 
       <div>
         <section className="min-h-screen md:ml-20 md:mr-20">
-          <ProjectTitle>Video Game Projects</ProjectTitle>
+          <div className="flex flex-row items-center">
+            <ProjectTitle>Video Game Projects</ProjectTitle>
+
+            <p className="ml-10">2020-2022</p>
+          </div>
 
           {/* Project description + images (left column) */}
           <div className="flex flex-col xl:flex-row">

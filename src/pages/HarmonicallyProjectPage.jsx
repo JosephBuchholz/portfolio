@@ -24,6 +24,8 @@ export default function HarmonicallyProjectPage() {
             <div className="min-w-10">
               <GithubLink url="https://github.com/JosephBuchholz/musique-website"></GithubLink>
             </div>
+
+            <p className="ml-10">2021 - Present</p>
           </div>
 
           <div className="flex flex-col xl:flex-row">
@@ -70,19 +72,19 @@ export default function HarmonicallyProjectPage() {
               </ProjectParagraph>
 
               <ProjectParagraph>
-                Hence, the third and current version was created. It is
+                Hence, the third and current version was created. It is being
                 developed for the web using C++, React, and Django. Because a
                 significant portion of the second version's code was written in
                 C++, porting it to the web did not take as much effort as would
                 normally be required. Emscripten was used to compile the C++ to
                 WebAssembly so that it could be run in the browser. The
                 JavaScript React framework was used for the frontend UI and
-                rendering and TailwindCSS was used for styling. And the backend
+                rendering, and TailwindCSS was used for styling. And the backend
                 Python framework Django was used to deliver the website, to
                 provide an API for getting MusicXML files from the database, and
                 to facilitate an authentication system. Features in addition to
-                the feature present in the second version include: a chord sheet
-                editor for easily creating guitar chord sheets and a user
+                the features present in the second version include: a chord
+                sheet editor for easily creating guitar chord sheets and a user
                 authentication system to save those created chord sheets.
               </ProjectParagraph>
 
