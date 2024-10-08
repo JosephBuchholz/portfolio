@@ -3,6 +3,7 @@ import HomePage from "./pages/HomePage";
 import HarmonicallyProjectPage from "./pages/HarmonicallyProjectPage";
 import ScriptureRefProjectPage from "./pages/ScriptureRefProjectPage";
 import VideoGameProjectsPage from "./pages/VideoGameProjectsPage";
+import ResumePage from "./pages/ResumePage";
 
 /**
  * Main application component. Handles url routing.
@@ -27,6 +28,7 @@ export default function App() {
             path="/video-game-projects"
             element={<VideoGameProjectsPage></VideoGameProjectsPage>}
           ></Route>
+          <Route path="/resume" element={<ResumePage></ResumePage>}></Route>
         </Routes>
       </BrowserRouter>
     </>

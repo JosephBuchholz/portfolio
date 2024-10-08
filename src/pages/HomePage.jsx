@@ -99,8 +99,8 @@ export default function HomePage() {
                 <div className="flex-1 flex justify-center items-center">
                   <div className="m-10">
                     {/* Main title */}
-                    <h1 className="font-sans text-lg md:text-4xl">Hello</h1>
-                    <h1 className="font-semibold font-sans text-lg md:text-4xl">
+                    <h1 className="font-sans text-xl md:text-4xl">Hello</h1>
+                    <h1 className="font-semibold font-sans text-xl md:text-4xl">
                       I'm <br className="md:hidden"></br>
                       <span className="font-bold text-blue-600">
                         Joseph Buchholz

@@ -44,6 +44,9 @@ function NavigationBar({ useURLNavigation = false }) {
         >
           Projects
         </ListLink>
+        <ListLink toURL="/resume" useURLNavigation={useURLNavigation}>
+          Resume
+        </ListLink>
       </ul>
     </div>
   );
@@ -57,7 +60,7 @@ function ListLink({
 }) {
   return (
     <>
-      <li className="text-center m-6 p-1">
+      <li className="text-center mt-6 mb-6 mr-1 ml-1 sm:m-6 p-1">
         <NavLink
           activeClass="active"
           toID={toID}
@@ -83,7 +86,7 @@ function NavLink({
   const navigate = useNavigate();
 
   let link = <></>;
-  if (useURLNavigation) {
+  if (useURLNavigation || toID == "") {
     link = (
       <p
         className={className}
