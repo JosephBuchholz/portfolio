@@ -1,3 +1,6 @@
+/**
+ * A button for displaying skills.
+ */
 export default function SkillButton({
   children,
   highlight = false,

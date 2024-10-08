@@ -7,6 +7,9 @@ import {
 } from "../components/ProjectPageComponents";
 import { GithubLink } from "../components/Links";
 
+/**
+ * Project page for Scripture reference project.
+ */
 export default function ScriptureRefProjectPage() {
   return (
     <main className="flex flex-col overflow-x-hidden">
@@ -22,6 +25,7 @@ export default function ScriptureRefProjectPage() {
           </div>
 
           <div className="flex flex-col xl:flex-row">
+            {/* Project description */}
             <div className="flex-1">
               <ProjectParagraph>
                 This project (which has not been given a very good name yet) is
@@ -41,6 +45,7 @@ export default function ScriptureRefProjectPage() {
               </ProjectParagraph>
             </div>
 
+            {/* Project images */}
             <div className="flex-1">
               <ProjectImage
                 title="Hymn: Great Is Thy Faithfulness"

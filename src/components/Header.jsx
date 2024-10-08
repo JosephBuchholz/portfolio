@@ -1,6 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-scroll";
 
+/**
+ * Basic reusable header.
+ */
 export default function Header({ useURLNavigation = false }) {
   return <NavigationBar useURLNavigation={useURLNavigation}></NavigationBar>;
 }

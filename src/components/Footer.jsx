@@ -1,5 +1,8 @@
 import { HighlightSpan } from "./Highlighters";
 
+/**
+ * Basic reusable footer.
+ */
 export default function Footer({ highlightSkill = "" }) {
   return (
     <footer className="h-52 p-4 bg-slate-900 relative z-10 bottom-0 w-full">

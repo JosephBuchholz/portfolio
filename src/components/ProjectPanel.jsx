@@ -2,6 +2,9 @@ import HighlightDiv from "../components/Highlighters";
 import { HighlightSpan } from "./Highlighters";
 import { GithubLink } from "./Links";
 
+/**
+ * Project panel component, links to the project page (on the home page).
+ */
 export default function ProjectPanel({
   title,
   description,

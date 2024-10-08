@@ -1,3 +1,7 @@
+/**
+ * Components for links.
+ */
+
 export function GithubLink({ url }) {
   return (
     <a className="" href={url} target="_blank">

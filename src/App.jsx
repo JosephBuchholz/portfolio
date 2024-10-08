@@ -4,6 +4,9 @@ import HarmonicallyProjectPage from "./pages/HarmonicallyProjectPage";
 import ScriptureRefProjectPage from "./pages/ScriptureRefProjectPage";
 import VideoGameProjectsPage from "./pages/VideoGameProjectsPage";
 
+/**
+ * Main application component. Handles url routing.
+ */
 export default function App() {
   return (
     <>

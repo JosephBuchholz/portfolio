@@ -1,3 +1,7 @@
+/**
+ * Components used for the project pages.
+ */
+
 export function ProjectImage({ title, src }) {
   return (
     <div className="m-2 md:m-10">

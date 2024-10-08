@@ -7,6 +7,9 @@ import {
 } from "../components/ProjectPageComponents";
 import { TextLink } from "../components/Links";
 
+/**
+ * Project page for my various video game projects.
+ */
 export default function VideoGameProjectsPage() {
   return (
     <main className="flex flex-col overflow-x-hidden">
@@ -16,6 +19,7 @@ export default function VideoGameProjectsPage() {
         <section className="min-h-screen md:ml-20 md:mr-20">
           <ProjectTitle>Video Game Projects</ProjectTitle>
 
+          {/* Project description + images (left column) */}
           <div className="flex flex-col xl:flex-row">
             <div className="flex-1">
               <ProjectParagraph>
@@ -68,6 +72,7 @@ export default function VideoGameProjectsPage() {
               ></ProjectImage>
             </div>
 
+            {/* Project images (right column) */}
             <div className="flex-1">
               <ProjectImage
                 title="Tetris Hacked: Title Screen"

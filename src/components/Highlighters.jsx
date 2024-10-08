@@ -1,3 +1,7 @@
+/**
+ * Components for highlighting elements.
+ */
+
 export default function HighlightDiv({
   children,
   className = "",

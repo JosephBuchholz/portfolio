@@ -7,6 +7,9 @@ import {
 } from "../components/ProjectPageComponents";
 import { GithubLink } from "../components/Links";
 
+/**
+ * Project page for Hamonically/Musique project.
+ */
 export default function HarmonicallyProjectPage() {
   return (
     <main className="flex flex-col overflow-x-hidden">
@@ -24,6 +27,7 @@ export default function HarmonicallyProjectPage() {
           </div>
 
           <div className="flex flex-col xl:flex-row">
+            {/* Project description + images (left column) */}
             <div className="flex-1">
               <ProjectParagraph>
                 Harmonically (originally named Musique) is a music application
@@ -95,6 +99,7 @@ export default function HarmonicallyProjectPage() {
               ></ProjectImage>
             </div>
 
+            {/* Project images (right column) */}
             <div className="flex-1">
               <ProjectImage
                 title="Guitar Chord Sheet Editor"

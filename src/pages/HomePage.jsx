@@ -7,17 +7,25 @@ import { animateScroll, Link, scroller } from "react-scroll";
 import Footer from "../components/Footer";
 import { useNavigate, useParams } from "react-router-dom";
 
+/**
+ * The home page.
+ */
 export default function HomePage() {
   const [windowSize, setWindowSize] = useState([
     window.innerWidth,
     window.innerHeight,
   ]);
 
+  // The scroll position on the page
   const [currentScrollPosition, setCurrentScrollPosition] = useState(0.0);
+
+  // A string that contains the currently selected skill to be highlighted (e.g.: "JavaScript")
   const [highlightSkill, setHighlightSkill] = useState("");
 
+  // navigate object used to navigate to different pages.
   const navigate = useNavigate();
 
+  // get section from url (ex: /home/<section>)
   const section = useParams();
 
   useEffect(() => {
@@ -54,7 +62,7 @@ export default function HomePage() {
     };
   }, []);
 
-  // change how my image looks depending on screen size
+  // change how main headshot image looks depending on screen size
   let sideImage = <></>;
   if (windowSize[0] > 640) {
     sideImage = (
@@ -90,6 +98,7 @@ export default function HomePage() {
               <div className="flex flex-col sm:flex-row flex-1 h-screen w-screen">
                 <div className="flex-1 flex justify-center items-center">
                   <div className="m-10">
+                    {/* Main title */}
                     <h1 className="font-sans text-lg md:text-4xl">Hello</h1>
                     <h1 className="font-semibold font-sans text-lg md:text-4xl">
                       I'm <br className="md:hidden"></br>
@@ -98,6 +107,7 @@ export default function HomePage() {
                       </span>
                     </h1>
 
+                    {/* "My Projects" button */}
                     <Link
                       activeClass="active"
                       smooth={true}
@@ -109,6 +119,7 @@ export default function HomePage() {
                       </p>
                     </Link>
 
+                    {/* Social buttons */}
                     <ul className="mt-5 mb-10">
                       <SocialButton
                         link="https://github.com/JosephBuchholz/"
@@ -134,6 +145,7 @@ export default function HomePage() {
                   </div>
                 </div>
 
+                {/* Headshot photo */}
                 {sideImage}
               </div>
             </div>
@@ -142,10 +154,14 @@ export default function HomePage() {
           )}
         </section>
         <div className="p-8 bg-white relative z-10"></div>
+
+        {/* Skills section */}
         <section id="skills-marker" className="bg-white relative z-10">
           <br className="m-4"></br>
           <h2 className="font-semibold text-4xl m-4">Skills</h2>
           <br></br>
+
+          {/* Proficient skills */}
           <p className="ml-4 font-semibold text-xl">Proficient:</p>
           <ul className="flex flew-row flex-wrap ml-4">
             <SkillButton
@@ -194,6 +210,8 @@ export default function HomePage() {
               HTML
             </SkillButton>
           </ul>
+
+          {/* Some experience skills */}
           <p className="ml-4 font-semibold text-xl">Some Experience:</p>
           <ul className="flex flew-row flex-wrap ml-4">
             <SkillButton
@@ -239,10 +257,13 @@ export default function HomePage() {
             </SkillButton>
           </ul>
         </section>
+
+        {/* Project section */}
         <section id="projects-marker" className="bg-white relative z-10">
           <br className="m-4"></br>
           <h2 className="font-semibold text-4xl m-4">Projects</h2>
 
+          {/* Project panels */}
           <div className="grid 2xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4 m-4">
             <ProjectPanel
               title="Harmonically (Musique)"
@@ -273,7 +294,7 @@ export default function HomePage() {
 
             <ProjectPanel
               title="Song Scripture Referencer"
-              description="A simple Web application made with *Django* and *React* that
+              description="A simple full-stack Web application made with *Django* and *React* that
                   displays Bible references for the lyrics of Christian songs
                   and hymns."
               githubLink="https://github.com/JosephBuchholz/scripture-ref-songs"
@@ -294,9 +315,7 @@ export default function HomePage() {
 
             <ProjectPanel
               title="Various Video Game Projects"
-              description="Multiple video game projects. Most of these video games were programmed using
-                  the Godot game engine using GDScript and/or *C++*. Some of them were developed
-                  purly with *Python* using Pygame."
+              description="Multiple video game projects created over many years. Most of these video games were programmed using the Godot game engine using GDScript and/or *C++*. Some of them were developed purely with *Python* using Pygame."
               highlight={
                 highlightSkill == "C/C++" || highlightSkill == "Python"
               }
@@ -310,6 +329,7 @@ export default function HomePage() {
             <ProjectPanel
               title="My Portfolio Website"
               description="This simple portfolio website made with *React* and *Tailwind CSS*."
+              githubLink="https://github.com/JosephBuchholz/portfolio"
               highlight={
                 highlightSkill == "React" ||
                 highlightSkill == "Tailwind CSS" ||
@@ -317,6 +337,10 @@ export default function HomePage() {
                 highlightSkill == "JavaScript"
               }
               highlightSkill={highlightSkill}
+              onClick={() => {
+                animateScroll.scrollToTop({ duration: 400 }); // reset scroll
+                navigate("/home");
+              }}
             ></ProjectPanel>
           </div>
 

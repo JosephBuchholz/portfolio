@@ -1,5 +1,8 @@
 import { useState } from "react";
 
+/**
+ * Button component for linking to socials such as GitHub or LinkedIn.
+ */
 export default function SocialButton({ link, imageSrc, text }) {
   const [hover, setHover] = useState(false);
 
