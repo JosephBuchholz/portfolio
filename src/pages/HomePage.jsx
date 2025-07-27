@@ -205,6 +205,15 @@ export default function HomePage() {
             >
               HTML
             </SkillButton>
+            <SkillButton
+              highlight
+              clickable
+              onClick={() => {
+                setHighlightSkill("C#");
+              }}
+            >
+              C#
+            </SkillButton>
           </ul>
 
           {/* Some experience skills */}
@@ -251,6 +260,30 @@ export default function HomePage() {
             >
               Emscripten
             </SkillButton>
+            <SkillButton
+              clickable
+              onClick={() => {
+                setHighlightSkill("Svelte");
+              }}
+            >
+              Svelte
+            </SkillButton>
+            <SkillButton
+              clickable
+              onClick={() => {
+                setHighlightSkill("TypeScript");
+              }}
+            >
+              TypeScript
+            </SkillButton>
+            <SkillButton
+              clickable
+              onClick={() => {
+                setHighlightSkill("React Native");
+              }}
+            >
+              React Native
+            </SkillButton>
           </ul>
         </section>
 
@@ -294,6 +327,7 @@ export default function HomePage() {
                   displays Bible references for the lyrics of Christian songs
                   and hymns."
               githubLink="https://github.com/JosephBuchholz/scripture-ref-songs"
+              websiteLink="https://scripture.josephbuchholz.com/"
               highlight={
                 highlightSkill == "Python" ||
                 highlightSkill == "JavaScript" ||
@@ -319,6 +353,53 @@ export default function HomePage() {
               onClick={() => {
                 animateScroll.scrollToTop({ duration: 0 }); // reset scroll
                 navigate("/video-game-projects");
+              }}
+            ></ProjectPanel>
+
+            <ProjectPanel
+              title="Echolog (WSU CrimsonCode 2025)"
+              description="A movie recommendation website made during a 24 hour hackathon using *Svelte*."
+              githubLink="https://github.com/JosephBuchholz/crimsoncode2025"
+              websiteLink="https://echolog.346135.xyz"
+              highlight={
+                highlightSkill == "Svelte" ||
+                highlightSkill == "TypeScript" ||
+                highlightSkill == "HTML" ||
+                highlightSkill == "Tailwind CSS"
+              }
+              highlightSkill={highlightSkill}
+              onClick={() => {
+                animateScroll.scrollToTop({ duration: 0 }); // reset scroll
+                navigate("/crimson-code-2025");
+              }}
+            ></ProjectPanel>
+
+            <ProjectPanel
+              title="Guinea Pig Video Game"
+              description="A simple bullet hell style game (the main character is a guinea pig) made for one of my classes at WSU (CPT_S 487). The game was created using *C#* and MonoGame in a team of five."
+              githubLink="https://github.com/JosephBuchholz/nexus-horizon-game"
+              highlight={highlightSkill == "C#"}
+              highlightSkill={highlightSkill}
+              onClick={() => {
+                animateScroll.scrollToTop({ duration: 0 }); // reset scroll
+                navigate("/guinea-pig-game");
+              }}
+            ></ProjectPanel>
+
+            <ProjectPanel
+              title="CampusSafe"
+              description="A simple team class project developed over the course of a few months. Made using *React Native* for the frontend and *Django* for the backend."
+              githubLink="https://github.com/JosephBuchholz/Campus-Safe"
+              highlight={
+                highlightSkill == "TypeScript" ||
+                highlightSkill == "Python" ||
+                highlightSkill == "Django" ||
+                highlightSkill == "React Native"
+              }
+              highlightSkill={highlightSkill}
+              onClick={() => {
+                window.location.href =
+                  "https://github.com/JosephBuchholz/Campus-Safe";
               }}
             ></ProjectPanel>
 

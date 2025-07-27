@@ -13,6 +13,14 @@ export function GithubLink({ url }) {
   );
 }
 
+export function ProjectWebsiteLink({ url }) {
+  return (
+    <a className="text-blue-700 underline" href={url} target="_blank">
+      Project<br></br>Website
+    </a>
+  );
+}
+
 export function TextLink({ children, url }) {
   return (
     <a className="text-blue-500 underline" href={url} target="_blank">

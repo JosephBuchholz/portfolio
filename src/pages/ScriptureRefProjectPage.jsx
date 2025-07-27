@@ -5,7 +5,7 @@ import {
   ProjectParagraph,
   ProjectTitle,
 } from "../components/ProjectPageComponents";
-import { GithubLink } from "../components/Links";
+import { GithubLink, ProjectWebsiteLink } from "../components/Links";
 
 /**
  * Project page for Scripture reference project.
@@ -22,19 +22,22 @@ export default function ScriptureRefProjectPage() {
             <div className="min-w-10">
               <GithubLink url="https://github.com/JosephBuchholz/scripture-ref-songs"></GithubLink>
             </div>
+            <div className="ml-4">
+              <ProjectWebsiteLink url="https://scripture.josephbuchholz.com/"></ProjectWebsiteLink>
+            </div>
 
-            <p className="ml-10">July 2024 - Present</p>
+            <p className="ml-10">July 2024 - Dec. 2024</p>
           </div>
 
           <div className="flex flex-col xl:flex-row">
             {/* Project description */}
             <div className="flex-1">
               <ProjectParagraph>
-                This project (which has not been given a very good name yet) is
-                a simple web application that allows users to look at certain
-                Scripture references of Christian songs and hymns. The project
-                is being developed using React and Tailwind CSS for the front
-                end, and Django for the back end.
+                This project (which has not been given a very good name yet, and
+                probably never will) is a simple web application that allows
+                users to look at certain Scripture references of Christian songs
+                and hymns. The project was developed using React and Tailwind
+                CSS for the front end, and Django for the back end.
               </ProjectParagraph>
               <ProjectParagraph>
                 Essentially, how this app functions, is on the "Songs" page, the
@@ -44,6 +47,9 @@ export default function ScriptureRefProjectPage() {
                 the lyrics and scripture references). This is then displayed to
                 the user, where they can view the Bible verses associated with
                 each lyric, and read the verses displayed on the right.
+              </ProjectParagraph>
+              <ProjectParagraph>
+                This project's development has stopped for now.
               </ProjectParagraph>
             </div>
 

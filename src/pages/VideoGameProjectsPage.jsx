@@ -20,7 +20,7 @@ export default function VideoGameProjectsPage() {
           <div className="flex flex-row items-center">
             <ProjectTitle>Video Game Projects</ProjectTitle>
 
-            <p className="ml-10">2020-2022</p>
+            <p className="ml-10">2020 - 2022</p>
           </div>
 
           {/* Project description + images (left column) */}

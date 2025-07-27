@@ -25,7 +25,7 @@ export default function HarmonicallyProjectPage() {
               <GithubLink url="https://github.com/JosephBuchholz/musique-website"></GithubLink>
             </div>
 
-            <p className="ml-10">2021 - Present</p>
+            <p className="ml-10">2021 - 2024</p>
           </div>
 
           <div className="flex flex-col xl:flex-row">
@@ -38,9 +38,9 @@ export default function HarmonicallyProjectPage() {
                 was originally developed for Android using Kotlin and C++.
                 Though now the project has been ported to the Web for greater
                 accessibility using Emscripten, Django, and React. The project
-                has been in development for over three years and consists of
-                over 25,000 lines of code. Over that time the project has gone
-                through a few different phases and prototypes.
+                was in development over the course of about three years and
+                consists of over 25,000 lines of code. Over that time the
+                project has been through a few different phases and prototypes.
               </ProjectParagraph>
 
               <ProjectParagraph>
@@ -72,7 +72,7 @@ export default function HarmonicallyProjectPage() {
               </ProjectParagraph>
 
               <ProjectParagraph>
-                Hence, the third and current version was created. It is being
+                Hence, the third and current version was created. It was
                 developed for the web using C++, React, and Django. Because a
                 significant portion of the second version's code was written in
                 C++, porting it to the web did not take as much effort as would
@@ -89,10 +89,10 @@ export default function HarmonicallyProjectPage() {
               </ProjectParagraph>
 
               <ProjectParagraph>
-                In the end, this project is still being developed (though
-                admittedly progress has significantly slowed for various
-                reasons). Even if this application is never released, it will
-                still prove to be an amazing learning experince.
+                In the end, this project has stopped being developed. While this
+                application will likely never be released (though I would like
+                to revive it in the future), it has still proved to be an
+                amazing learning experince.
               </ProjectParagraph>
 
               <ProjectImage

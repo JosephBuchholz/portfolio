@@ -1,6 +1,7 @@
 import HighlightDiv from "../components/Highlighters";
 import { HighlightSpan } from "./Highlighters";
 import { GithubLink } from "./Links";
+import { ProjectWebsiteLink } from "./Links";
 
 /**
  * Project panel component, links to the project page (on the home page).
@@ -9,6 +10,7 @@ export default function ProjectPanel({
   title,
   description,
   githubLink = "",
+  websiteLink = "",
   highlight,
   highlightSkill = "",
   onClick = () => {},
@@ -18,8 +20,17 @@ export default function ProjectPanel({
   // add GitHub link if there is one
   if (githubLink != "") {
     links.push(
-      <div className="w-10 ml-auto mt-auto mr-0 mb-0" key={"github-link"}>
+      <div className="m-2" key={"github-link"}>
         <GithubLink url={githubLink}></GithubLink>
+      </div>
+    );
+  }
+
+  // add Website link if there is one
+  if (websiteLink != "") {
+    links.push(
+      <div className="m-2" key={"website-link"}>
+        <ProjectWebsiteLink url={websiteLink}></ProjectWebsiteLink>
       </div>
     );
   }
@@ -70,7 +81,9 @@ export default function ProjectPanel({
           {title}
         </p>
         <p className="">{newWords}</p>
-        <div className="flex-1">{links}</div>
+        <div className="flex-1 flex">
+          <div className="ml-auto mt-auto mr-0 mb-0 flex flex-row">{links}</div>
+        </div>
       </div>
     </HighlightDiv>
   );
