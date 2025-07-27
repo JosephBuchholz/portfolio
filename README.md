@@ -9,4 +9,5 @@ My portfolio website showcasing my projects. Made with React and Tailwind CSS. D
 
 # Deployment
 
-1. ...
+1. `npm run deploy`
+2. Go to the repo "Settings > Pages" and enter in custom domain.
