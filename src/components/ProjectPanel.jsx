@@ -13,6 +13,7 @@ export default function ProjectPanel({
   websiteLink = "",
   highlight,
   highlightSkill = "",
+  date = "",
   onClick = () => {},
 }) {
   let links = [];
@@ -70,7 +71,7 @@ export default function ProjectPanel({
 
   return (
     <HighlightDiv
-      className="flex p-4 bg-slate-200 rounded-lg"
+      className="flex p-4 bg-slate-100 rounded-lg"
       highlight={highlight}
     >
       <div className="flex flex-col">
@@ -80,6 +81,7 @@ export default function ProjectPanel({
         >
           {title}
         </p>
+        <p className="mb-2 text-gray-600">{date}</p>
         <p className="">{newWords}</p>
         <div className="flex-1 flex">
           <div className="ml-auto mt-auto mr-0 mb-0 flex flex-row">{links}</div>

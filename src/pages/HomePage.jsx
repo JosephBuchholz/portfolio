@@ -284,6 +284,14 @@ export default function HomePage() {
             >
               React Native
             </SkillButton>
+            <SkillButton
+              clickable
+              onClick={() => {
+                setHighlightSkill("R");
+              }}
+            >
+              R
+            </SkillButton>
           </ul>
         </section>
 
@@ -315,6 +323,7 @@ export default function HomePage() {
                 highlightSkill == "Emscripten"
               }
               highlightSkill={highlightSkill}
+              date="2021-2024"
               onClick={() => {
                 animateScroll.scrollToTop({ duration: 0 }); // reset scroll
                 navigate("/harmonically");
@@ -337,6 +346,7 @@ export default function HomePage() {
                 highlightSkill == "Tailwind CSS"
               }
               highlightSkill={highlightSkill}
+              date="2024"
               onClick={() => {
                 animateScroll.scrollToTop({ duration: 0 }); // reset scroll
                 navigate("/scripture-referencer");
@@ -350,6 +360,7 @@ export default function HomePage() {
                 highlightSkill == "C/C++" || highlightSkill == "Python"
               }
               highlightSkill={highlightSkill}
+              date="2020-2022"
               onClick={() => {
                 animateScroll.scrollToTop({ duration: 0 }); // reset scroll
                 navigate("/video-game-projects");
@@ -368,6 +379,7 @@ export default function HomePage() {
                 highlightSkill == "Tailwind CSS"
               }
               highlightSkill={highlightSkill}
+              date="2025"
               onClick={() => {
                 animateScroll.scrollToTop({ duration: 0 }); // reset scroll
                 navigate("/crimson-code-2025");
@@ -380,6 +392,7 @@ export default function HomePage() {
               githubLink="https://github.com/JosephBuchholz/nexus-horizon-game"
               highlight={highlightSkill == "C#"}
               highlightSkill={highlightSkill}
+              date="2025"
               onClick={() => {
                 animateScroll.scrollToTop({ duration: 0 }); // reset scroll
                 navigate("/guinea-pig-game");
@@ -397,6 +410,7 @@ export default function HomePage() {
                 highlightSkill == "React Native"
               }
               highlightSkill={highlightSkill}
+              date="2024"
               onClick={() => {
                 window.location.href =
                   "https://github.com/JosephBuchholz/Campus-Safe";
@@ -413,6 +427,7 @@ export default function HomePage() {
                 highlightSkill == "HTML" ||
                 highlightSkill == "JavaScript"
               }
+              date="2024-2025"
               highlightSkill={highlightSkill}
               onClick={() => {
                 animateScroll.scrollToTop({ duration: 400 }); // reset scroll
