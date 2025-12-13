@@ -6,6 +6,7 @@ My portfolio website showcasing my projects. Made with React and Tailwind CSS. D
 
 1. `npm install`
 2. `npm run build`
+2. `npm run preview`
 
 # Deployment
 

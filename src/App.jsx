@@ -6,6 +6,7 @@ import VideoGameProjectsPage from "./pages/VideoGameProjectsPage";
 import ResumePage from "./pages/ResumePage";
 import WSUHackathon2025Page from "./pages/WSUHackathon2025";
 import GuineaPigGamePage from "./pages/GuineaPigGame";
+import DataSciencePage from "./pages/DataSciencePage";
 
 /**
  * Main application component. Handles url routing.
@@ -39,6 +40,10 @@ export default function App() {
             element={<GuineaPigGamePage></GuineaPigGamePage>}
           ></Route>
           <Route path="/resume" element={<ResumePage></ResumePage>}></Route>
+          <Route
+            path="/data-science-project"
+            element={<DataSciencePage></DataSciencePage>}
+          ></Route>
         </Routes>
       </BrowserRouter>
     </>

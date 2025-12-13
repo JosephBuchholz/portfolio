@@ -251,7 +251,14 @@ export default function HomePage() {
             >
               Jetpack Compose
             </SkillButton>
-            <SkillButton>LaTeX</SkillButton>
+            <SkillButton
+              clickable
+              onClick={() => {
+                setHighlightSkill("LaTeX");
+              }}
+            >
+              LaTeX
+            </SkillButton>
             <SkillButton
               clickable
               onClick={() => {
@@ -284,13 +291,14 @@ export default function HomePage() {
             >
               React Native
             </SkillButton>
+            <SkillButton>R</SkillButton>
             <SkillButton
               clickable
               onClick={() => {
-                setHighlightSkill("R");
+                setHighlightSkill("Racket");
               }}
             >
-              R
+              Racket
             </SkillButton>
           </ul>
         </section>
@@ -302,6 +310,42 @@ export default function HomePage() {
 
           {/* Project panels */}
           <div className="grid 2xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4 m-4">
+            <ProjectPanel
+              title="Datalog Interpreter"
+              description="A Datalog interpreter written in *Racket* in collaboration with other students."
+              highlight={highlightSkill == "Racket"}
+              highlightSkill={highlightSkill}
+              date="2025"
+            ></ProjectPanel>
+
+            <ProjectPanel
+              title="Data Science Project"
+              description="A small research project aimed at creating a scalable terrain graph representation
+                  for watershed delineation and flow routing. The project was done for a course on data science."
+              githubLink="https://github.com/JosephBuchholz/cpts-475-watershed-delineation"
+              highlight={
+                highlightSkill == "Python" || highlightSkill == "LaTeX"
+              }
+              highlightSkill={highlightSkill}
+              date="2025"
+              onClick={() => {
+                animateScroll.scrollToTop({ duration: 0 }); // reset scroll
+                navigate("/data-science-project");
+              }}
+            ></ProjectPanel>
+
+            <ProjectPanel
+              title="Asteroids++"
+              description="A small video game made in under 48 hours for the WSU Crimon Game Jam 2025. Created in Godot using GDScript."
+              websiteLink="https://goldenlava77.itch.io/asteroids"
+              highlight={false}
+              highlightSkill={highlightSkill}
+              date="2025"
+              onClick={() => {
+                window.location.href = "https://goldenlava77.itch.io/asteroids";
+              }}
+            ></ProjectPanel>
+
             <ProjectPanel
               title="Harmonically (Musique)"
               description="A music application that displays standard music notation and
