@@ -1,3 +1,28 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-primary: #4a7ce7;
+  --color-secondary: #23a177;
+
+  --color-background: #b8b8d6;
+  --color-background-header: #dbdbe4;
+  --color-background-panel: #dbdbe4;
+
+  --color-text: #242425;
+  --color-text-on-primary: #1d1d1f;
+  --font-primary: "Archivo", sans-serif;
+}
+
+.dark {
+  --color-primary: #4a7ce7;
+  --color-secondary: #23a177;
+
+  --color-background: #171724;
+  --color-background-header: #1c1f33;
+  --color-background-panel: #232338;
+
+  --color-text: #dddddd;
+  --color-text-on-primary: #141414;
+}

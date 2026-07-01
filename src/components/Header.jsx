@@ -14,19 +14,8 @@ function NavigationBar({ useURLNavigation = false }) {
   const { height, width } = useWindowDimensions();
 
   return (
-    <div className="flex bg-gray-50 top-0 w-screen h-16 justify-between z-50 sticky">
-      <div className="flex justify-center items-center text-center">
-        <NavLink
-          toID="home-marker"
-          toURL="/home"
-          className="text-3xl font-bold text-black m-6 p-1 cursor-pointer"
-          useURLNavigation={useURLNavigation}
-        >
-          <img className="h-6" src="/images/logo.svg"></img>
-        </NavLink>
-      </div>
-
-      <ul className="flex justify-center items-center mr-8">
+    <div className="flex bg-background-header top-0 w-screen h-16 justify-between z-50 sticky">
+      <ul className="flex justify-between items-center mx-28 w-full">
         {width > 640 ? (
           <ListLink
             toID="home-marker"
@@ -68,13 +57,13 @@ function ListLink({
 }) {
   return (
     <>
-      <li className="text-center mt-6 mb-6 mr-1 ml-1 sm:m-6 p-1">
+      <li className="text-center text-text mt-6 mb-6 mr-1 ml-1 sm:m-6 p-1">
         <NavLink
           activeClass="active"
           toID={toID}
           toURL={toURL}
           useURLNavigation={useURLNavigation}
-          className="hover:text-blue-600 transition-colors ease-in-out delay-50 font-semibold hover:underline hover:underline-offset-4 hover:decoration-2 cursor-pointer"
+          className="hover:text-primary transition-colors ease-in-out delay-50 font-semibold hover:underline hover:underline-offset-4 hover:decoration-2 cursor-pointer"
         >
           {children}
         </NavLink>
