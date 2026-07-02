@@ -6,13 +6,14 @@ import {
   ProjectTitle,
 } from "../components/ProjectPageComponents";
 import { TextLink } from "../components/Links";
+import MainContainer from "../components/MainContainer";
 
 /**
  * Project page for my various video game projects.
  */
 export default function VideoGameProjectsPage() {
   return (
-    <main className="flex flex-col overflow-x-hidden">
+    <MainContainer>
       <Header useURLNavigation={true}></Header>
 
       <div>
@@ -20,7 +21,7 @@ export default function VideoGameProjectsPage() {
           <div className="flex flex-row items-center">
             <ProjectTitle>Video Game Projects</ProjectTitle>
 
-            <p className="ml-10">2020 - 2022</p>
+            <p className="ml-10 text-text-secondary">2020 - 2022</p>
           </div>
 
           {/* Project description + images (left column) */}
@@ -96,6 +97,6 @@ export default function VideoGameProjectsPage() {
 
         <Footer></Footer>
       </div>
-    </main>
+    </MainContainer>
   );
 }

@@ -1,9 +1,10 @@
 import Footer from "../components/Footer";
 import Header from "../components/Header";
+import MainContainer from "../components/MainContainer";
 
 export default function ResumePage() {
   return (
-    <main className="h-screen bg-background">
+    <MainContainer>
       <div className="flex flex-col h-screen">
         <Header useURLNavigation={true}></Header>
 
@@ -16,6 +17,6 @@ export default function ResumePage() {
       </div>
 
       <Footer></Footer>
-    </main>
+    </MainContainer>
   );
 }

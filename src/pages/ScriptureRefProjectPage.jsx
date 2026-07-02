@@ -6,13 +6,14 @@ import {
   ProjectTitle,
 } from "../components/ProjectPageComponents";
 import { GithubLink, ProjectWebsiteLink } from "../components/Links";
+import MainContainer from "../components/MainContainer";
 
 /**
  * Project page for Scripture reference project.
  */
 export default function ScriptureRefProjectPage() {
   return (
-    <main className="flex flex-col overflow-x-hidden">
+    <MainContainer>
       <Header useURLNavigation={true}></Header>
 
       <div>
@@ -26,7 +27,7 @@ export default function ScriptureRefProjectPage() {
               <ProjectWebsiteLink url="https://scripture.josephbuchholz.com/"></ProjectWebsiteLink>
             </div>
 
-            <p className="ml-10">July 2024 - Dec. 2024</p>
+            <p className="ml-10 text-text-secondary">July 2024 - Dec. 2024</p>
           </div>
 
           <div className="flex flex-col xl:flex-row">
@@ -65,6 +66,6 @@ export default function ScriptureRefProjectPage() {
 
         <Footer></Footer>
       </div>
-    </main>
+    </MainContainer>
   );
 }

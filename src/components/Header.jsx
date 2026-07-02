@@ -15,7 +15,7 @@ function NavigationBar({ useURLNavigation = false }) {
 
   return (
     <div className="flex bg-background-header top-0 w-screen h-16 justify-between z-50 sticky">
-      <ul className="flex justify-between items-center mx-28 w-full">
+      <ul className="flex justify-end items-center mx-28 w-full">
         {width > 640 ? (
           <ListLink
             toID="home-marker"
@@ -27,7 +27,7 @@ function NavigationBar({ useURLNavigation = false }) {
         ) : (
           <></>
         )}
-        <ListLink
+        {/*<ListLink
           toID="skills-marker"
           toURL="/home/skills"
           useURLNavigation={useURLNavigation}
@@ -40,7 +40,7 @@ function NavigationBar({ useURLNavigation = false }) {
           useURLNavigation={useURLNavigation}
         >
           Projects
-        </ListLink>
+        </ListLink>*/}
         <ListLink toURL="/resume" useURLNavigation={useURLNavigation}>
           Resume
         </ListLink>

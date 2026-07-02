@@ -5,6 +5,8 @@ import SkillButton from "../components/SkillButton";
 import ProjectPanel from "../components/ProjectPanel";
 import { useNavigate, useParams } from "react-router-dom";
 import { animateScroll, scroller } from "react-scroll";
+import SocialButton from "../components/SocialButton";
+import { TextLink } from "../components/Links";
 
 export function Paragraph({ children, className = "" }) {
   return (
@@ -111,9 +113,31 @@ export default function HomePage() {
         </Card>
 
         <Card>
+          <ul className="flex flex-row">
+            <SocialButton
+              link="https://github.com/JosephBuchholz/"
+              imageSrc="/images/github_icon.png"
+              text="GitHub"
+            ></SocialButton>
+            <SocialButton
+              link="https://www.linkedin.com/in/joseph-buchholz-8b6769323/"
+              text="LinkedIn"
+            ></SocialButton>
+            <SocialButton
+              link="https://wsu.joinhandshake.com/profiles/43552814/"
+              text="Handshake"
+            ></SocialButton>
+            <SocialButton
+              link="mailto:joseph.buchholz@outlook.com"
+              text="joseph.buchholz@outlook.com"
+            ></SocialButton>
+          </ul>
+        </Card>
+
+        <Card>
           <HeaderText>Programming Languages</HeaderText>
 
-          <Paragraph>Languages I have used extensively:</Paragraph>
+          <Paragraph>Languages I know quite well:</Paragraph>
 
           <ul className="flex flew-row flex-wrap ml-4">
             <SkillButton
@@ -154,7 +178,7 @@ export default function HomePage() {
             </SkillButton>
           </ul>
 
-          <Paragraph>Languages that I am competent in:</Paragraph>
+          <Paragraph>Languages that I am familiar with:</Paragraph>
 
           <ul className="flex flew-row flex-wrap ml-4">
             <SkillButton
@@ -232,6 +256,15 @@ export default function HomePage() {
               highlight
               clickable
               onClick={() => {
+                setHighlightSkill("GLSL");
+              }}
+            >
+              GLSL
+            </SkillButton>
+            <SkillButton
+              highlight
+              clickable
+              onClick={() => {
                 window.open(
                   "https://github.com/JosephBuchholz/lean-practice",
                   "_blank",
@@ -255,34 +288,28 @@ export default function HomePage() {
 
         <Card>
           <section id="projects-marker">
-            <HeaderText>Projects</HeaderText>
+            <HeaderText>Main/Recent Projects</HeaderText>
           </section>
 
           <div className="grid md:grid-cols-2 sm:grid-cols-1 gap-4 m-4">
             <ProjectPanel
-              title="Datalog Interpreter"
+              title="Tinkr"
+              description="A programming language research project that I am currently working on. Tinkr is a language that handles algebraic effects in a new way."
+              highlight={
+                highlightSkill == "Racket" || highlightSkill == "Python"
+              }
+              highlightSkill={highlightSkill}
+              date="2026"
+            ></ProjectPanel>
+
+            <ProjectPanel
+              title="Boringlog"
               description="A *Datalog* interpreter written in *Racket* in collaboration with other students."
               highlight={
                 highlightSkill == "Racket" || highlightSkill == "Datalog"
               }
               highlightSkill={highlightSkill}
-              date="2025"
-            ></ProjectPanel>
-
-            <ProjectPanel
-              title="Data Science Project"
-              description="A small research project aimed at creating a scalable terrain graph representation
-                  for watershed delineation and flow routing. The project was done for a course on data science."
-              githubLink="https://github.com/JosephBuchholz/cpts-475-watershed-delineation"
-              highlight={
-                highlightSkill == "Python" || highlightSkill == "LaTeX"
-              }
-              highlightSkill={highlightSkill}
-              date="2025"
-              onClick={() => {
-                animateScroll.scrollToTop({ duration: 0 }); // reset scroll
-                navigate("/data-science-project");
-              }}
+              date="2025-2026"
             ></ProjectPanel>
 
             <ProjectPanel
@@ -324,6 +351,41 @@ export default function HomePage() {
                 navigate("/harmonically");
               }}
             ></ProjectPanel>
+          </div>
+        </Card>
+
+        <Card>
+          <HeaderText>Other Projects</HeaderText>
+
+          <div className="grid md:grid-cols-2 sm:grid-cols-1 gap-4 m-4">
+            <ProjectPanel
+              title="HotStuff BFT Visualizer"
+              description="A simple visualizer website for the HotStuff Byzantine fault tolerance (BFT) algorithm created as a class project for CPT_S 427 at WSU (Spring 2026)."
+              githubLink="https://github.com/JosephBuchholz/byzantine-visualizer"
+              websiteLink="https://bft.josephbuchholz.com/"
+              highlight={highlightSkill == "TypeScript"}
+              highlightSkill={highlightSkill}
+              date="2026"
+              onClick={() => {
+                window.location.href = "https://bft.josephbuchholz.com/";
+              }}
+            ></ProjectPanel>
+
+            <ProjectPanel
+              title="Data Science Project"
+              description="A small research project aimed at creating a scalable terrain graph representation
+                  for watershed delineation and flow routing. The project was done for a course on data science."
+              githubLink="https://github.com/JosephBuchholz/cpts-475-watershed-delineation"
+              highlight={
+                highlightSkill == "Python" || highlightSkill == "LaTeX"
+              }
+              highlightSkill={highlightSkill}
+              date="2025"
+              onClick={() => {
+                animateScroll.scrollToTop({ duration: 0 }); // reset scroll
+                navigate("/data-science-project");
+              }}
+            ></ProjectPanel>
 
             <ProjectPanel
               title="Song Scripture Referencer"
@@ -355,7 +417,8 @@ export default function HomePage() {
                 highlightSkill == "C++" ||
                 highlightSkill == "Python" ||
                 highlightSkill == "GDScript" ||
-                highlightSkill == "JavaScript"
+                highlightSkill == "JavaScript" ||
+                highlightSkill == "GLSL"
               }
               highlightSkill={highlightSkill}
               date="2020-2022"
@@ -426,7 +489,7 @@ export default function HomePage() {
                 highlightSkill == "JavaScript" ||
                 highlightSkill == "TypeScript"
               }
-              date="2024-2025"
+              date="2024-2026"
               highlightSkill={highlightSkill}
               onClick={() => {
                 animateScroll.scrollToTop({ duration: 400 }); // reset scroll

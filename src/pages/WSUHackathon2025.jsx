@@ -1,18 +1,18 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import {
-  ProjectImage,
   ProjectParagraph,
   ProjectTitle,
 } from "../components/ProjectPageComponents";
 import { GithubLink, ProjectWebsiteLink } from "../components/Links";
+import MainContainer from "../components/MainContainer";
 
 /**
  * Project page for the project I did for the WSU 2025 Crimson Hackathon.
  */
 export default function WSUHackathon2025Page() {
   return (
-    <main className="flex flex-col overflow-x-hidden">
+    <MainContainer>
       <Header useURLNavigation={true}></Header>
 
       <div>
@@ -26,7 +26,7 @@ export default function WSUHackathon2025Page() {
               <ProjectWebsiteLink url="https://echolog.346135.xyz"></ProjectWebsiteLink>
             </div>
 
-            <p className="ml-10">Feb. 2025</p>
+            <p className="ml-10 text-text-secondary">Feb. 2025</p>
           </div>
 
           <div className="flex flex-col xl:flex-row">
@@ -46,6 +46,6 @@ export default function WSUHackathon2025Page() {
 
         <Footer></Footer>
       </div>
-    </main>
+    </MainContainer>
   );
 }
