@@ -17,13 +17,13 @@ export default function SocialButton({
   return (
     <li className="flex flex-row items-center w-min h-14 m-2 overflow-clip rounded-sm">
       {imageSrc ? (
-        <div className="w-14 h-14">
+        <div className="bg-background-panel2 hover:opacity-80 w-14 h-14">
           <a href={link} target="_blank">
             <img
               className={
                 theme === "dark"
                   ? "w-14 h-14 hover:opacity-80 bg-background-panel2 p-1"
-                  : "w-14 h-14 hover:opacity-80 invert bg-background-panel2 p-1"
+                  : "w-14 h-14 hover:opacity-80 invert p-1"
               }
               src={imageSrc}
             ></img>
