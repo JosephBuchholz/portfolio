@@ -87,33 +87,32 @@ export default function HomePage() {
     >
       <Header></Header>
 
-      <div className="self-center w-2/3 max-w-3xl">
+      <div className="self-center w-11/12 sm:w-2/3 max-w-3xl">
         <Card>
-          <div className="flex flex-row justify-between">
-            <div>
-              <h1 className="font-primary text-3xl font-semibold text-text">
-                Hello,
-                <br />
-                I&apos;m Joseph Buchholz
-              </h1>
-              <Paragraph>
-                I am a hardworking and skilled computer science student at WSU
-                (entering my first year for a masters in CS). I enjoy both the
-                problem solving and creative aspects of computer programming
-                which I have been exploring for over 7 years now. As I begin
-                pursuing my masters degree, I am excited to start delving into
-                the world of programming language research.
-              </Paragraph>
-            </div>
-
-            <div className="min-w-60 w-60 h-60 rounded-sm ml-4 bg-background overflow-clip">
+          <div>
+            <div className="min-w-60 w-60 h-60 rounded-sm ml-4 mb-4 bg-background overflow-clip float-right">
               <img className="object-cover" src="/images/me.jpg"></img>
             </div>
+
+            <h1 className="font-primary text-3xl font-semibold text-text">
+              Hello,
+              <br />
+              I&apos;m Joseph Buchholz
+            </h1>
+
+            <Paragraph>
+              I am a hardworking and skilled computer science student at WSU
+              (entering my first year for a masters in CS). I enjoy both the
+              problem solving and creative aspects of computer programming which
+              I have been exploring for over 7 years now. As I begin pursuing my
+              masters degree, I am excited to start delving into the world of
+              programming language research.
+            </Paragraph>
           </div>
         </Card>
 
         <Card>
-          <ul className="flex flex-row">
+          <ul className="flex flex-row flex-wrap">
             <SocialButton
               link="https://github.com/JosephBuchholz/"
               imageSrc="/images/github_icon.png"
