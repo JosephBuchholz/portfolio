@@ -9,7 +9,7 @@ export default function HighlightDiv({
 }) {
   let clsName = "transition-all duration-200 " + className;
 
-  if (highlight) clsName += " bg-yellow-100";
+  if (highlight) clsName += " bg-background-panel2-highlight";
 
   return <div className={clsName}>{children}</div>;
 }
@@ -17,7 +17,7 @@ export default function HighlightDiv({
 export function HighlightSpan({
   children,
   highlight = true,
-  highlightColor = "bg-yellow-200",
+  highlightColor = "bg-primary",
 }) {
   let className = "transition-all duration-200 rounded-sm";
 

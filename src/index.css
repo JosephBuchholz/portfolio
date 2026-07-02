@@ -12,9 +12,12 @@
   --color-background: #b8b8d6;
   --color-background-header: #dbdbe4;
   --color-background-panel: #dbdbe4;
+  --color-background-panel2: #414953;
+  --color-background-panel2-highlight: #2b415a;
   --color-background-footer: #343d6e;
 
   --color-text: #242425;
+  --color-text-secondary: #9b9292;
   --color-text-on-primary: #1d1d1f;
   --color-text-footer: #636ea8;
 
@@ -31,9 +34,12 @@
   --color-background: #171724;
   --color-background-header: #1c1f33;
   --color-background-panel: #232338;
+  --color-background-panel2: #213246;
+  --color-background-panel2-highlight: #2b415a;
   --color-background-footer: #111425;
 
   --color-text: #dddddd;
+  --color-text-secondary: #9b9292;
   --color-text-on-primary: #141414;
   --color-text-footer: #585d77;
 }
