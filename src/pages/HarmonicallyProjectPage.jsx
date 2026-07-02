@@ -6,13 +6,14 @@ import {
   ProjectTitle,
 } from "../components/ProjectPageComponents";
 import { GithubLink } from "../components/Links";
+import MainContainer from "../components/MainContainer";
 
 /**
  * Project page for Hamonically/Musique project.
  */
 export default function HarmonicallyProjectPage() {
   return (
-    <main className="flex flex-col overflow-x-hidden">
+    <MainContainer>
       <Header useURLNavigation={true}></Header>
 
       <div>
@@ -25,7 +26,7 @@ export default function HarmonicallyProjectPage() {
               <GithubLink url="https://github.com/JosephBuchholz/musique-website"></GithubLink>
             </div>
 
-            <p className="ml-10">2021 - 2024</p>
+            <p className="ml-10 text-text-secondary">2021 - 2024</p>
           </div>
 
           <div className="flex flex-col xl:flex-row">
@@ -117,6 +118,6 @@ export default function HarmonicallyProjectPage() {
 
         <Footer></Footer>
       </div>
-    </main>
+    </MainContainer>
   );
 }

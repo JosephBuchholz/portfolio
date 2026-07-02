@@ -7,19 +7,19 @@ export default function SkillButton({
   clickable = false,
   onClick = () => {},
 }) {
-  let className = "px-4 py-2 m-2 rounded-full font-semibold";
+  let className = "px-4 py-2 m-2 rounded-sm font-semibold text-text-on-primary";
 
   if (clickable) className += " cursor-pointer";
   else className += " cursor-default";
 
   if (highlight) {
-    className += " bg-blue-400";
+    className += " bg-primary";
 
-    if (clickable) className += " hover:bg-blue-300";
+    if (clickable) className += " hover:bg-primary-hover";
   } else {
-    className += " bg-slate-300";
+    className += " bg-secondary";
 
-    if (clickable) className += " hover:bg-slate-200";
+    if (clickable) className += " hover:bg-secondary-hover";
   }
 
   return (

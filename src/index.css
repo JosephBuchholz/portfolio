@@ -1,3 +1,45 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-primary: #4a7ce7;
+  --color-primary-hover: #729efd;
+
+  --color-secondary: #23a177;
+  --color-secondary-hover: #8ee9e4;
+
+  --color-background: #b8b8d6;
+  --color-background-header: #dbdbe4;
+  --color-background-panel: #dbdbe4;
+  --color-background-panel2: #c9cedf;
+  --color-background-panel2-highlight: #b7bed4;
+  --color-background-footer: #343d6e;
+
+  --color-text: #242425;
+  --color-text-secondary: #7e7777;
+  --color-text-on-primary: #1d1d1f;
+  --color-text-footer: #636ea8;
+
+  --font-primary: "Georgia", sans-serif;
+}
+
+.dark {
+  --color-primary: #4a7ce7;
+  --color-primary-hover: #729efd;
+
+  --color-secondary: #7ec4da;
+  --color-secondary-hover: #aae3f1;
+
+  --color-background: #171724;
+  --color-background-header: #1c1f33;
+  --color-background-panel: #232338;
+  --color-background-panel2: #213246;
+  --color-background-panel2-highlight: #2b415a;
+  --color-background-footer: #111425;
+
+  --color-text: #dddddd;
+  --color-text-secondary: #9b9292;
+  --color-text-on-primary: #141414;
+  --color-text-footer: #585d77;
+}

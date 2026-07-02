@@ -1,20 +1,43 @@
 import { useEffect, useLayoutEffect, useState } from "react";
+import Footer from "../components/Footer";
 import Header from "../components/Header";
-import SocialButton from "../components/SocialButton";
 import SkillButton from "../components/SkillButton";
 import ProjectPanel from "../components/ProjectPanel";
-import { animateScroll, Link, scroller } from "react-scroll";
-import Footer from "../components/Footer";
 import { useNavigate, useParams } from "react-router-dom";
-import useWindowDimensions from "../hooks/useWindowDimensionsHook";
+import { animateScroll, scroller } from "react-scroll";
+import SocialButton from "../components/SocialButton";
+import { TextLink } from "../components/Links";
+
+export function Paragraph({ children, className = "" }) {
+  return (
+    <p className={`font-primary text-lg text-text my-2 ${className}`}>
+      {children}
+    </p>
+  );
+}
+
+export function HeaderText({ children, className = "" }) {
+  return (
+    <h2
+      className={`font-primary text-2xl font-semibold text-text mb-4 ${className}`}
+    >
+      {children}
+    </h2>
+  );
+}
+
+export function Card({ children, className = "" }) {
+  return (
+    <div className={`bg-background-panel p-6 mt-10 rounded-sm ${className}`}>
+      {children}
+    </div>
+  );
+}
 
 /**
  * The home page.
  */
 export default function HomePage() {
-  // Window width and height
-  const { height, width } = useWindowDimensions();
-
   // The scroll position on the page
   const [currentScrollPosition, setCurrentScrollPosition] = useState(0.0);
 
@@ -28,6 +51,7 @@ export default function HomePage() {
   const section = useParams();
 
   useEffect(() => {
+    console.log("section: ", section);
     if (section.section == "skills") {
       scroller.scrollTo("skills-marker", {
         duration: 1500,
@@ -35,6 +59,7 @@ export default function HomePage() {
         smooth: true,
       });
     } else if (section.section == "projects") {
+      console.log("scrolling to projects");
       scroller.scrollTo("projects-marker", {
         duration: 1500,
         delay: 100,
@@ -55,119 +80,73 @@ export default function HomePage() {
     };
   }, []);
 
-  // change how main headshot image looks depending on screen size
-  let sideImage = <></>;
-  let footerImage = <></>;
-  if (width > 640) {
-    sideImage = (
-      <div className="w-1/2 h-full bg-blue-700 flex-1 content-center">
-        <div className="left-0 ml-5 w-80 h-80 rounded-full bg-slate-200 overflow-clip">
-          <img className="object-cover" src="/images/me.jpg"></img>
-        </div>
-      </div>
-    );
-  } else {
-    sideImage = <div className="w-full h-full bg-blue-700 flex-1"></div>;
-
-    footerImage = (
-      <div className="w-full h-full bg-blue-700 flex-1 overflow-clip">
-        <img className="w-full" src="/images/me2.jpg"></img>
-      </div>
-    );
-  }
-
-  // whether the top background (the fixed div element that contains my picture, social buttons, and "Hello I'm..." text) should be displayed
-  // hides it so that the over scroll at the bottom does not show it
-  let showTopBackground = true;
-  if (currentScrollPosition > height) {
-    showTopBackground = false;
-  }
-
   return (
-    <main id="home-marker" className="flex flex-col overflow-x-hidden">
+    <main
+      id="home-marker"
+      className="flex flex-col overflow-x-hidden bg-background h-screen"
+    >
       <Header></Header>
 
-      <div>
-        <section className="h-screen">
-          {showTopBackground ? (
-            <div className="fixed">
-              <div className="flex flex-col sm:flex-row flex-1 h-screen w-screen">
-                <div className="flex-1 flex justify-center items-center">
-                  <div className="m-10">
-                    {/* Main title */}
-                    <h1 className="font-sans text-xl md:text-4xl">Hello</h1>
-                    <h1 className="font-semibold font-sans text-xl md:text-4xl">
-                      I'm <br className="md:hidden"></br>
-                      <span className="font-bold text-blue-600">
-                        Joseph Buchholz
-                      </span>
-                    </h1>
-
-                    {/* "My Projects" button */}
-                    <Link
-                      activeClass="active"
-                      smooth={true}
-                      spy={true}
-                      to="projects-marker"
-                    >
-                      <p className="cursor-pointer text-white text-center font-semibold font-sans text-sm sm:text-base md:text-2xl bg-blue-700 rounded-full mt-5 p-3 hover:bg-blue-600">
-                        My Projects
-                      </p>
-                    </Link>
-
-                    {/* Social buttons */}
-                    <ul className="mt-5 mb-10">
-                      <SocialButton
-                        link="https://github.com/JosephBuchholz/"
-                        imageSrc="/images/github_icon.png"
-                        text="GitHub"
-                      ></SocialButton>
-                      <SocialButton
-                        link="https://www.linkedin.com/in/joseph-buchholz-8b6769323/"
-                        imageSrc="/images/linkedin_icon.png"
-                        text="LinkedIn"
-                      ></SocialButton>
-                      <SocialButton
-                        link="https://wsu.joinhandshake.com/profiles/43552814/"
-                        imageSrc="/images/handshake_icon.png"
-                        text="Handshake"
-                      ></SocialButton>
-                      <SocialButton
-                        link="mailto:joseph.buchholz@outlook.com"
-                        imageSrc="/images/email_icon.png"
-                        text="joseph.buchholz@outlook.com"
-                      ></SocialButton>
-                    </ul>
-                  </div>
-                </div>
-
-                {/* Headshot photo */}
-                {sideImage}
-              </div>
+      <div className="self-center w-11/12 sm:w-2/3 max-w-3xl">
+        <Card>
+          <div>
+            <div className="min-w-60 w-60 h-60 rounded-sm ml-4 mb-4 bg-background overflow-clip float-right">
+              <img className="object-cover" src="/images/me.jpg"></img>
             </div>
-          ) : (
-            <></>
-          )}
-        </section>
-        <div className="p-8 bg-white relative z-10"></div>
 
-        {/* Skills section */}
-        <section id="skills-marker" className="bg-white relative z-10">
-          <br className="m-4"></br>
-          <h2 className="font-semibold text-4xl m-4">Skills</h2>
-          <br></br>
+            <h1 className="font-primary text-3xl font-semibold text-text">
+              Hello,
+              <br />
+              I&apos;m Joseph Buchholz
+            </h1>
 
-          {/* Proficient skills */}
-          <p className="ml-4 font-semibold text-xl">Proficient:</p>
+            <Paragraph>
+              I am a hardworking and skilled computer science student at WSU
+              (entering my first year for a masters in CS). I enjoy both the
+              problem solving and creative aspects of computer programming which
+              I have been exploring for over 7 years now. As I begin pursuing my
+              masters degree, I am excited to start delving into the world of
+              programming language research.
+            </Paragraph>
+          </div>
+        </Card>
+
+        <Card>
+          <ul className="flex flex-row flex-wrap">
+            <SocialButton
+              link="https://github.com/JosephBuchholz/"
+              imageSrc="/images/github_icon.png"
+              text="GitHub"
+            ></SocialButton>
+            <SocialButton
+              link="https://www.linkedin.com/in/joseph-buchholz-8b6769323/"
+              text="LinkedIn"
+            ></SocialButton>
+            <SocialButton
+              link="https://wsu.joinhandshake.com/profiles/43552814/"
+              text="Handshake"
+            ></SocialButton>
+            <SocialButton
+              link="mailto:joseph.buchholz@outlook.com"
+              text="joseph.buchholz@outlook.com"
+            ></SocialButton>
+          </ul>
+        </Card>
+
+        <Card>
+          <HeaderText>Programming Languages</HeaderText>
+
+          <Paragraph>Languages I know quite well:</Paragraph>
+
           <ul className="flex flew-row flex-wrap ml-4">
             <SkillButton
               highlight
               clickable
               onClick={() => {
-                setHighlightSkill("C/C++");
+                setHighlightSkill("C++");
               }}
             >
-              C/C++
+              C++
             </SkillButton>
             <SkillButton
               highlight
@@ -182,19 +161,43 @@ export default function HomePage() {
               highlight
               clickable
               onClick={() => {
-                setHighlightSkill("JavaScript");
+                setHighlightSkill("Racket");
               }}
             >
-              JavaScript
+              Racket
             </SkillButton>
             <SkillButton
               highlight
               clickable
               onClick={() => {
-                setHighlightSkill("React");
+                setHighlightSkill("TypeScript");
               }}
             >
-              React
+              TypeScript
+            </SkillButton>
+          </ul>
+
+          <Paragraph>Languages that I am familiar with:</Paragraph>
+
+          <ul className="flex flew-row flex-wrap ml-4">
+            <SkillButton
+              highlight
+              clickable
+              onClick={() => {
+                setHighlightSkill("JavaScript");
+              }}
+            >
+              JavaScript
+            </SkillButton>
+            <SkillButton highlight>C</SkillButton>
+            <SkillButton
+              highlight
+              clickable
+              onClick={() => {
+                setHighlightSkill("C#");
+              }}
+            >
+              C#
             </SkillButton>
             <SkillButton
               highlight
@@ -209,33 +212,20 @@ export default function HomePage() {
               highlight
               clickable
               onClick={() => {
-                setHighlightSkill("C#");
+                setHighlightSkill("LaTeX");
               }}
             >
-              C#
+              LaTeX
             </SkillButton>
           </ul>
 
-          {/* Some experience skills */}
-          <p className="ml-4 font-semibold text-xl">Some Experience:</p>
+          <Paragraph>
+            Languages I have touched at least once (not that that says much):
+          </Paragraph>
+
           <ul className="flex flew-row flex-wrap ml-4">
             <SkillButton
-              clickable
-              onClick={() => {
-                setHighlightSkill("Django");
-              }}
-            >
-              Django
-            </SkillButton>
-            <SkillButton
-              clickable
-              onClick={() => {
-                setHighlightSkill("Tailwind CSS");
-              }}
-            >
-              Tailwind CSS
-            </SkillButton>
-            <SkillButton
+              highlight
               clickable
               onClick={() => {
                 setHighlightSkill("Kotlin");
@@ -243,102 +233,89 @@ export default function HomePage() {
             >
               Kotlin
             </SkillButton>
+            <SkillButton highlight>Java</SkillButton>
+            <SkillButton highlight>Dart</SkillButton>
             <SkillButton
+              highlight
               clickable
               onClick={() => {
-                setHighlightSkill("Jetpack Compose");
+                setHighlightSkill("Datalog");
               }}
             >
-              Jetpack Compose
+              Datalog
+            </SkillButton>
+            <SkillButton highlight>R</SkillButton>
+            <SkillButton highlight>Haskell</SkillButton>
+            <SkillButton highlight>PostScript</SkillButton>
+            <SkillButton highlight>Logo</SkillButton>
+            <SkillButton highlight>CSS</SkillButton>
+            <SkillButton highlight>SQL</SkillButton>
+            <SkillButton highlight>Flix</SkillButton>
+            <SkillButton
+              highlight
+              clickable
+              onClick={() => {
+                setHighlightSkill("GLSL");
+              }}
+            >
+              GLSL
             </SkillButton>
             <SkillButton
+              highlight
               clickable
               onClick={() => {
-                setHighlightSkill("LaTeX");
+                window.open(
+                  "https://github.com/JosephBuchholz/lean-practice",
+                  "_blank",
+                );
               }}
             >
-              LaTeX
+              Lean
             </SkillButton>
+            <SkillButton highlight>PHP</SkillButton>
             <SkillButton
+              highlight
               clickable
               onClick={() => {
-                setHighlightSkill("Emscripten");
+                setHighlightSkill("GDScript");
               }}
             >
-              Emscripten
-            </SkillButton>
-            <SkillButton
-              clickable
-              onClick={() => {
-                setHighlightSkill("Svelte");
-              }}
-            >
-              Svelte
-            </SkillButton>
-            <SkillButton
-              clickable
-              onClick={() => {
-                setHighlightSkill("TypeScript");
-              }}
-            >
-              TypeScript
-            </SkillButton>
-            <SkillButton
-              clickable
-              onClick={() => {
-                setHighlightSkill("React Native");
-              }}
-            >
-              React Native
-            </SkillButton>
-            <SkillButton>R</SkillButton>
-            <SkillButton
-              clickable
-              onClick={() => {
-                setHighlightSkill("Racket");
-              }}
-            >
-              Racket
+              GDScript
             </SkillButton>
           </ul>
-        </section>
+        </Card>
 
-        {/* Project section */}
-        <section id="projects-marker" className="bg-white relative z-10">
-          <br className="m-4"></br>
-          <h2 className="font-semibold text-4xl m-4">Projects</h2>
+        <Card>
+          <section id="projects-marker">
+            <HeaderText>Main/Recent Projects</HeaderText>
+          </section>
 
-          {/* Project panels */}
-          <div className="grid 2xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4 m-4">
+          <div className="grid md:grid-cols-2 sm:grid-cols-1 gap-4 m-4">
             <ProjectPanel
-              title="Datalog Interpreter"
-              description="A Datalog interpreter written in *Racket* in collaboration with other students."
-              highlight={highlightSkill == "Racket"}
+              title="Tinkr"
+              description="A programming language research project that I am currently working on. Tinkr is a language that handles algebraic effects in a new way."
+              highlight={
+                highlightSkill == "Racket" || highlightSkill == "Python"
+              }
               highlightSkill={highlightSkill}
-              date="2025"
+              date="2026"
             ></ProjectPanel>
 
             <ProjectPanel
-              title="Data Science Project"
-              description="A small research project aimed at creating a scalable terrain graph representation
-                  for watershed delineation and flow routing. The project was done for a course on data science."
-              githubLink="https://github.com/JosephBuchholz/cpts-475-watershed-delineation"
+              title="Boringlog"
+              description="A *Datalog* interpreter written in *Racket* in collaboration with other students."
               highlight={
-                highlightSkill == "Python" || highlightSkill == "LaTeX"
+                highlightSkill == "Racket" || highlightSkill == "Datalog"
               }
               highlightSkill={highlightSkill}
-              date="2025"
-              onClick={() => {
-                animateScroll.scrollToTop({ duration: 0 }); // reset scroll
-                navigate("/data-science-project");
-              }}
+              date="2025-2026"
             ></ProjectPanel>
 
             <ProjectPanel
               title="Asteroids++"
-              description="A small video game made in under 48 hours for the WSU Crimon Game Jam 2025. Created in Godot using GDScript."
+              description="A small video game made in under 48 hours for the WSU Crimon Game Jam 2025. Created in Godot using *GDScript*."
               websiteLink="https://goldenlava77.itch.io/asteroids"
-              highlight={false}
+              highlight={highlightSkill == "GDScript"}
               highlightSkill={highlightSkill}
               date="2025"
               onClick={() => {
@@ -355,7 +332,7 @@ export default function HomePage() {
                   accessibility using *Emscripten*, *Django*, and *React*."
               githubLink="https://github.com/JosephBuchholz/musique-website"
               highlight={
-                highlightSkill == "C/C++" ||
+                highlightSkill == "C++" ||
                 highlightSkill == "Python" ||
                 highlightSkill == "JavaScript" ||
                 highlightSkill == "HTML" ||
@@ -371,6 +348,41 @@ export default function HomePage() {
               onClick={() => {
                 animateScroll.scrollToTop({ duration: 0 }); // reset scroll
                 navigate("/harmonically");
+              }}
+            ></ProjectPanel>
+          </div>
+        </Card>
+
+        <Card>
+          <HeaderText>Other Projects</HeaderText>
+
+          <div className="grid md:grid-cols-2 sm:grid-cols-1 gap-4 m-4">
+            <ProjectPanel
+              title="HotStuff BFT Visualizer"
+              description="A simple visualizer website for the HotStuff Byzantine fault tolerance (BFT) algorithm created as a class project for CPT_S 427 at WSU (Spring 2026)."
+              githubLink="https://github.com/JosephBuchholz/byzantine-visualizer"
+              websiteLink="https://bft.josephbuchholz.com/"
+              highlight={highlightSkill == "TypeScript"}
+              highlightSkill={highlightSkill}
+              date="2026"
+              onClick={() => {
+                window.location.href = "https://bft.josephbuchholz.com/";
+              }}
+            ></ProjectPanel>
+
+            <ProjectPanel
+              title="Data Science Project"
+              description="A small research project aimed at creating a scalable terrain graph representation
+                  for watershed delineation and flow routing. The project was done for a course on data science."
+              githubLink="https://github.com/JosephBuchholz/cpts-475-watershed-delineation"
+              highlight={
+                highlightSkill == "Python" || highlightSkill == "LaTeX"
+              }
+              highlightSkill={highlightSkill}
+              date="2025"
+              onClick={() => {
+                animateScroll.scrollToTop({ duration: 0 }); // reset scroll
+                navigate("/data-science-project");
               }}
             ></ProjectPanel>
 
@@ -399,9 +411,13 @@ export default function HomePage() {
 
             <ProjectPanel
               title="Various Video Game Projects"
-              description="Multiple video game projects created over many years. Most of these video games were programmed using the Godot game engine using GDScript and/or *C++*. Some of them were developed purely with *Python* using Pygame."
+              description="Multiple video game projects created over many years. Most of these video games were programmed using the Godot game engine using *GDScript* and/or *C++*. Some of them were developed purely with *Python* using Pygame."
               highlight={
-                highlightSkill == "C/C++" || highlightSkill == "Python"
+                highlightSkill == "C++" ||
+                highlightSkill == "Python" ||
+                highlightSkill == "GDScript" ||
+                highlightSkill == "JavaScript" ||
+                highlightSkill == "GLSL"
               }
               highlightSkill={highlightSkill}
               date="2020-2022"
@@ -469,9 +485,10 @@ export default function HomePage() {
                 highlightSkill == "React" ||
                 highlightSkill == "Tailwind CSS" ||
                 highlightSkill == "HTML" ||
-                highlightSkill == "JavaScript"
+                highlightSkill == "JavaScript" ||
+                highlightSkill == "TypeScript"
               }
-              date="2024-2025"
+              date="2024-2026"
               highlightSkill={highlightSkill}
               onClick={() => {
                 animateScroll.scrollToTop({ duration: 400 }); // reset scroll
@@ -479,14 +496,10 @@ export default function HomePage() {
               }}
             ></ProjectPanel>
           </div>
-
-          <br></br>
-        </section>
-
-        {footerImage}
-
-        <Footer highlightSkill={highlightSkill}></Footer>
+        </Card>
       </div>
+
+      <Footer className="mt-20" highlightSkill={highlightSkill}></Footer>
     </main>
   );
 }

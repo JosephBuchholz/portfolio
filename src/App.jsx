@@ -7,6 +7,7 @@ import ResumePage from "./pages/ResumePage";
 import WSUHackathon2025Page from "./pages/WSUHackathon2025";
 import GuineaPigGamePage from "./pages/GuineaPigGame";
 import DataSciencePage from "./pages/DataSciencePage";
+import ThemeProvider from "./contexts/ThemeProvider";
 
 /**
  * Main application component. Handles url routing.
@@ -14,38 +15,45 @@ import DataSciencePage from "./pages/DataSciencePage";
 export default function App() {
   return (
     <>
-      <BrowserRouter>
-        <Routes>
-          <Route index element={<HomePage></HomePage>}></Route>
-          <Route path="/home" element={<HomePage></HomePage>}></Route>
-          <Route path="/home/:section" element={<HomePage></HomePage>}></Route>
-          <Route
-            path="/harmonically"
-            element={<HarmonicallyProjectPage></HarmonicallyProjectPage>}
-          ></Route>
-          <Route
-            path="/scripture-referencer"
-            element={<ScriptureRefProjectPage></ScriptureRefProjectPage>}
-          ></Route>
-          <Route
-            path="/video-game-projects"
-            element={<VideoGameProjectsPage></VideoGameProjectsPage>}
-          ></Route>
-          <Route
-            path="/crimson-code-2025"
-            element={<WSUHackathon2025Page></WSUHackathon2025Page>}
-          ></Route>
-          <Route
-            path="/guinea-pig-game"
-            element={<GuineaPigGamePage></GuineaPigGamePage>}
-          ></Route>
-          <Route path="/resume" element={<ResumePage></ResumePage>}></Route>
-          <Route
-            path="/data-science-project"
-            element={<DataSciencePage></DataSciencePage>}
-          ></Route>
-        </Routes>
-      </BrowserRouter>
+      <ThemeProvider>
+        <div className="font-primary bg-background">
+          <BrowserRouter>
+            <Routes>
+              <Route index element={<HomePage></HomePage>}></Route>
+              <Route path="/home" element={<HomePage></HomePage>}></Route>
+              <Route
+                path="/home/:section"
+                element={<HomePage></HomePage>}
+              ></Route>
+              <Route
+                path="/harmonically"
+                element={<HarmonicallyProjectPage></HarmonicallyProjectPage>}
+              ></Route>
+              <Route
+                path="/scripture-referencer"
+                element={<ScriptureRefProjectPage></ScriptureRefProjectPage>}
+              ></Route>
+              <Route
+                path="/video-game-projects"
+                element={<VideoGameProjectsPage></VideoGameProjectsPage>}
+              ></Route>
+              <Route
+                path="/crimson-code-2025"
+                element={<WSUHackathon2025Page></WSUHackathon2025Page>}
+              ></Route>
+              <Route
+                path="/guinea-pig-game"
+                element={<GuineaPigGamePage></GuineaPigGamePage>}
+              ></Route>
+              <Route path="/resume" element={<ResumePage></ResumePage>}></Route>
+              <Route
+                path="/data-science-project"
+                element={<DataSciencePage></DataSciencePage>}
+              ></Route>
+            </Routes>
+          </BrowserRouter>
+        </div>
+      </ThemeProvider>
     </>
   );
 }

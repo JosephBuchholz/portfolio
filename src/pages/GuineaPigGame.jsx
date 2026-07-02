@@ -5,14 +5,15 @@ import {
   ProjectParagraph,
   ProjectTitle,
 } from "../components/ProjectPageComponents";
-import { GithubLink } from "../components/Links";
+import { GithubLink, TextLink } from "../components/Links";
+import MainContainer from "../components/MainContainer";
 
 /**
  * Project page for CPT_S 487 game project.
  */
 export default function GuineaPigGamePage() {
   return (
-    <main className="flex flex-col overflow-x-hidden">
+    <MainContainer>
       <Header useURLNavigation={true}></Header>
 
       <div>
@@ -23,7 +24,7 @@ export default function GuineaPigGamePage() {
               <GithubLink url="https://github.com/JosephBuchholz/nexus-horizon-game"></GithubLink>
             </div>
 
-            <p className="ml-10">Jan. 2025 - Apr. 2025</p>
+            <p className="ml-10 text-text-secondary">Jan. 2025 - Apr. 2025</p>
           </div>
 
           {/* Project description */}
@@ -35,7 +36,12 @@ export default function GuineaPigGamePage() {
                 Architecture) at WSU. The game was created using C# and MonoGame
                 over the course of about four months. Significant focus was put
                 on design over playability/features. Because of this the project
-                won "Best Design" points on the class assignment.
+                won "Best Design" points on the class assignment. The game was
+                inspired by{" "}
+                <TextLink url="https://www.youtube.com/@GuineaPigsAdventures">
+                  my friend&apos;s YouTube channel
+                </TextLink>
+                .
               </ProjectParagraph>
             </div>
 
@@ -58,6 +64,6 @@ export default function GuineaPigGamePage() {
 
         <Footer></Footer>
       </div>
-    </main>
+    </MainContainer>
   );
 }
