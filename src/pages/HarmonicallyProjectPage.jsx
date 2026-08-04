@@ -3,10 +3,9 @@ import Footer from "../components/Footer";
 import {
   ProjectImage,
   ProjectParagraph,
-  ProjectTitle,
 } from "../components/ProjectPageComponents";
-import { GithubLink } from "../components/Links";
 import MainContainer from "../components/MainContainer";
+import ProjectHeader from "../components/ProjectHeader";
 
 /**
  * Project page for Hamonically/Musique project.
@@ -18,16 +17,11 @@ export default function HarmonicallyProjectPage() {
 
       <div>
         <section className="min-h-screen md:ml-20 md:mr-20">
-          <div className="flex flex-row items-center">
-            <ProjectTitle className="font-bold text-4xl m-5">
-              Harmonically
-            </ProjectTitle>
-            <div className="min-w-10">
-              <GithubLink url="https://github.com/JosephBuchholz/musique-website"></GithubLink>
-            </div>
-
-            <p className="ml-10 text-text-secondary">2021 - 2024</p>
-          </div>
+          <ProjectHeader
+            title="Harmonically"
+            githubUrl="https://github.com/JosephBuchholz/musique-website"
+            date="2021 - 2024"
+          />
 
           <div className="flex flex-col xl:flex-row">
             {/* Project description + images (left column) */}

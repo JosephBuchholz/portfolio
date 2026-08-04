@@ -15,8 +15,8 @@ function NavigationBar({ useURLNavigation = false }) {
 
   return (
     <div className="flex bg-background-header top-0 w-screen h-16 justify-between z-50 sticky">
-      <ul className="flex justify-end items-center mx-28 w-full">
-        {width > 640 ? (
+      <ul className="flex justify-end items-center mx-6 sm:mx-16 md:mx-28 w-full">
+        {width > 200 ? (
           <ListLink
             toID="home-marker"
             toURL="/home"

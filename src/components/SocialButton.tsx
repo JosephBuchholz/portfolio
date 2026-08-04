@@ -10,7 +10,7 @@ export default function SocialButton({
 }: {
   link: string;
   imageSrc?: string | null;
-  text?: string;
+  text?: any;
 }) {
   const { theme: theme } = useTheme();
 
@@ -36,7 +36,7 @@ export default function SocialButton({
             href={link}
             target="_blank"
           >
-            <p className="text-lg">{text}</p>
+            <p className="text-md sm:text-lg">{text}</p>
           </a>
         </div>
       )}

@@ -3,10 +3,10 @@ import Footer from "../components/Footer";
 import {
   ProjectImage,
   ProjectParagraph,
-  ProjectTitle,
 } from "../components/ProjectPageComponents";
-import { GithubLink, TextLink } from "../components/Links";
+import { TextLink } from "../components/Links";
 import MainContainer from "../components/MainContainer";
+import ProjectHeader from "../components/ProjectHeader";
 
 /**
  * Project page for CPT_S 487 game project.
@@ -18,14 +18,11 @@ export default function GuineaPigGamePage() {
 
       <div>
         <section className="min-h-screen md:ml-20 md:mr-20">
-          <div className="flex flex-row items-center">
-            <ProjectTitle>Guinea Pig Video Game</ProjectTitle>
-            <div className="min-w-10">
-              <GithubLink url="https://github.com/JosephBuchholz/nexus-horizon-game"></GithubLink>
-            </div>
-
-            <p className="ml-10 text-text-secondary">Jan. 2025 - Apr. 2025</p>
-          </div>
+          <ProjectHeader
+            title="Guinea Pig Video Game"
+            githubUrl="https://github.com/JosephBuchholz/nexus-horizon-game"
+            date="Jan. 2025 - Apr. 2025"
+          />
 
           {/* Project description */}
           <div className="flex flex-col xl:flex-row">

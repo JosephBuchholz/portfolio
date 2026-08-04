@@ -21,7 +21,7 @@
   --color-text-on-primary: #1d1d1f;
   --color-text-footer: #636ea8;
 
-  --font-primary: "Georgia", sans-serif;
+  --font-primary: "Georgia", font-serif;
 }
 
 .dark {

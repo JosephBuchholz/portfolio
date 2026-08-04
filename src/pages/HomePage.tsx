@@ -6,7 +6,6 @@ import ProjectPanel from "../components/ProjectPanel";
 import { useNavigate, useParams } from "react-router-dom";
 import { animateScroll, scroller } from "react-scroll";
 import SocialButton from "../components/SocialButton";
-import { TextLink } from "../components/Links";
 
 export function Paragraph({ children, className = "" }) {
   return (
@@ -90,7 +89,7 @@ export default function HomePage() {
       <div className="self-center w-11/12 sm:w-2/3 max-w-3xl">
         <Card>
           <div>
-            <div className="min-w-60 w-60 h-60 rounded-sm ml-4 mb-4 bg-background overflow-clip float-right">
+            <div className="sm:min-w-60 md:w-60 max-h-96 sm:h-80 md:h-60 rounded-sm ml-4 mb-4 bg-background overflow-clip md:float-right">
               <img className="object-cover" src="/images/me.jpg"></img>
             </div>
 
@@ -128,7 +127,16 @@ export default function HomePage() {
             ></SocialButton>
             <SocialButton
               link="mailto:joseph.buchholz@outlook.com"
-              text="joseph.buchholz@outlook.com"
+              text={
+                <span>
+                  <span className="inline sm:hidden">
+                    Email
+                  </span>
+                  <span className="hidden sm:inline">
+                    joseph.buchholz@outlook.com
+                  </span>
+                </span>
+              }
             ></SocialButton>
           </ul>
         </Card>
@@ -138,7 +146,7 @@ export default function HomePage() {
 
           <Paragraph>Languages I know quite well:</Paragraph>
 
-          <ul className="flex flew-row flex-wrap ml-4">
+          <ul className="flex flew-row flex-wrap sm:ml-4">
             <SkillButton
               highlight
               clickable
@@ -179,7 +187,7 @@ export default function HomePage() {
 
           <Paragraph>Languages that I am familiar with:</Paragraph>
 
-          <ul className="flex flew-row flex-wrap ml-4">
+          <ul className="flex flew-row flex-wrap sm:ml-4">
             <SkillButton
               highlight
               clickable
@@ -223,7 +231,7 @@ export default function HomePage() {
             Languages I have touched at least once (not that that says much):
           </Paragraph>
 
-          <ul className="flex flew-row flex-wrap ml-4">
+          <ul className="flex flew-row flex-wrap sm:ml-4">
             <SkillButton
               highlight
               clickable
@@ -290,10 +298,10 @@ export default function HomePage() {
             <HeaderText>Main/Recent Projects</HeaderText>
           </section>
 
-          <div className="grid md:grid-cols-2 sm:grid-cols-1 gap-4 m-4">
+          <div className="grid md:grid-cols-2 sm:grid-cols-1 gap-4 sm:m-4">
             <ProjectPanel
               title="Tinkr"
-              description="A programming language research project that I am currently working on. Tinkr is a language that handles algebraic effects in a new way."
+              description="A programming language research project that I am currently assisting my professor Dr. Thomas Gilray on. Tinkr is a language that handles algebraic effects in a new way."
               highlight={
                 highlightSkill == "Racket" || highlightSkill == "Python"
               }
@@ -356,7 +364,7 @@ export default function HomePage() {
         <Card>
           <HeaderText>Other Projects</HeaderText>
 
-          <div className="grid md:grid-cols-2 sm:grid-cols-1 gap-4 m-4">
+          <div className="grid md:grid-cols-2 sm:grid-cols-1 gap-4 sm:m-4">
             <ProjectPanel
               title="HotStuff BFT Visualizer"
               description="A simple visualizer website for the HotStuff Byzantine fault tolerance (BFT) algorithm created as a class project for CPT_S 427 at WSU (Spring 2026)."

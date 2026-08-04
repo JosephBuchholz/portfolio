@@ -3,10 +3,10 @@ import Footer from "../components/Footer";
 import {
   ProjectImage,
   ProjectParagraph,
-  ProjectTitle,
 } from "../components/ProjectPageComponents";
 import { TextLink } from "../components/Links";
 import MainContainer from "../components/MainContainer";
+import ProjectHeader from "../components/ProjectHeader";
 
 /**
  * Project page for my various video game projects.
@@ -18,11 +18,10 @@ export default function VideoGameProjectsPage() {
 
       <div>
         <section className="min-h-screen md:ml-20 md:mr-20">
-          <div className="flex flex-row items-center">
-            <ProjectTitle>Video Game Projects</ProjectTitle>
-
-            <p className="ml-10 text-text-secondary">2020 - 2022</p>
-          </div>
+          <ProjectHeader
+            title="Video Game Projects"
+            date="2020 - 2022"
+          />
 
           {/* Project description + images (left column) */}
           <div className="flex flex-col xl:flex-row">

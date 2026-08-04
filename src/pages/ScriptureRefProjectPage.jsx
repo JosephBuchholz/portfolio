@@ -3,10 +3,9 @@ import Footer from "../components/Footer";
 import {
   ProjectImage,
   ProjectParagraph,
-  ProjectTitle,
 } from "../components/ProjectPageComponents";
-import { GithubLink, ProjectWebsiteLink } from "../components/Links";
 import MainContainer from "../components/MainContainer";
+import ProjectHeader from "../components/ProjectHeader";
 
 /**
  * Project page for Scripture reference project.
@@ -18,17 +17,12 @@ export default function ScriptureRefProjectPage() {
 
       <div>
         <section className="min-h-screen md:ml-20 md:mr-20">
-          <div className="flex flex-row items-center">
-            <ProjectTitle>Scripture Song Referencer</ProjectTitle>
-            <div className="min-w-10">
-              <GithubLink url="https://github.com/JosephBuchholz/scripture-ref-songs"></GithubLink>
-            </div>
-            <div className="ml-4">
-              <ProjectWebsiteLink url="https://scripture.josephbuchholz.com/"></ProjectWebsiteLink>
-            </div>
-
-            <p className="ml-10 text-text-secondary">July 2024 - Dec. 2024</p>
-          </div>
+          <ProjectHeader
+            title="Scripture Song Referencer"
+            githubUrl="https://github.com/JosephBuchholz/scripture-ref-songs"
+            projectWebsiteUrl="https://scripture.josephbuchholz.com/"
+            date="July 2024 - Dec. 2024"
+          />
 
           <div className="flex flex-col xl:flex-row">
             {/* Project description */}
